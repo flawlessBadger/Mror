@@ -16,7 +16,7 @@ function write() {
             write();
         }
     };
-    xmlhttp.open("GET", "mysql_load.php", true);
+    xmlhttp.open("GET", "loaders/mysql_load.php", true);
     xmlhttp.send();
 
 
