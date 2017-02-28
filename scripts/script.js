@@ -90,6 +90,9 @@ function mover() {
                     $("#weather").animate({ top: m }, 700);
                     state--;
                 }
+            } else if(response == 3) {
+    setTimeout(reloadPage, 300);
+
             }
             mover();
         }
@@ -166,7 +169,6 @@ $(document).ready(function () {
     setTimeout(mover, 300);
     // setTimeout(playSound, 500);
     setTimeout(tempload, 2000);
-    setTimeout(reloadPage, 300000);
     // $("#mockup").delay(300).animate({ left: '0' }, 1000, "easeOutCubic");
     $('.grid').masonry({
         // options
