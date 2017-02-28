@@ -54,8 +54,8 @@ h1, h2,h3,h4,h5,h6, p {
     left: 0;
     height: 1920px;
     width: 1080px;
-     /*-webkit-transition: top 1s; */
-    /*transition: top 1s;*/
+     -webkit-transition: top 1s; 
+    transition: top 1s;
 }
 
 #feed {
@@ -63,8 +63,8 @@ h1, h2,h3,h4,h5,h6, p {
     top: 1280px;
     left: 48px;
     width: 984px;  
-     /*-webkit-transition: top 1s; */
-    /*transition: top 1s;*/
+     -webkit-transition: top 1s; 
+    transition: top 1s;
 }
 a:link {
     color: white;
