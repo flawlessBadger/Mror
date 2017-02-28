@@ -51,7 +51,7 @@ function mover() {
             var response = parseInt(this.responseText);
 
     console.log("movement");
-            if (response == 0) {
+            if (response == 2) {
             // $('#feed').css('top','0');
             // $('#weather').css('top','-2560px');
 
@@ -73,7 +73,7 @@ function mover() {
                 // var m = $("#feed").offset().top + 400;
                 // $("#feed").animate({ top: m }, 700);
                 // console.log(m);
-            } else if (response == 2) {
+            } else if (response == 0) {
             // $('#weather').css('top','-1280px');
             // $('#feed').css('top','1280px');
 
