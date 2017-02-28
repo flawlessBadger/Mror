@@ -43,7 +43,7 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
             <h2><?= $entry->title ?></h2>
             <p><?= $entry->description ?></p></div>
             <?php
-            if($breaker>15){
+            if($breaker>30){
                 break;
             }
             $breaker++;
