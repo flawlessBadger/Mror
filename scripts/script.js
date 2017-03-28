@@ -66,7 +66,7 @@ function mover() {
                 }else if(state==2){
                     $('#weather').css('top','0');
                     state--;
-                }else if(state<-1){
+                }else if(state<= -1){
                     $('#feed').css('top',((state)*640).toString+'px');
                     state--;
                 }
