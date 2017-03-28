@@ -67,7 +67,7 @@ function mover() {
                     $('#weather').css('top','0');
                     state--;
                 }else if(state<= -1){
-                    $('#feed').css('top',((state)*640).toString+'px');
+                    $('#feed').css('top',((state)*640)+'px');
                     state--;
                 }
                 // if (state == -1) {
