@@ -189,7 +189,7 @@ $(document).ready(function () {
             html += '<h2 id="intemp"></h2><h2 id="inhum"></h2>'
 
             html += '<img id="house" src="res/house.png">';
-            html += '<div id="weatherline"></div>    <H1 id="hello" >Hello!</H1>'
+            html += '<div id="weatherline"></div>    <H1 id="hello" >Hello!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</H1>'
             // $("#maindeg").text(weather.temp + '&deg;' + weather.units.temp);
 
             $("#weather").html(html);
