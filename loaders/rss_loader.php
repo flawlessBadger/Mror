@@ -39,9 +39,9 @@
         //Print all the entries
         foreach($entries as $entry){
 
-            ?><<div class="grid-item"><div class="line"></div>
+            ?><<div class="grid-item"><div class="vignette-bottom"><div class="line"></div>
             <h2 class="rss-title"><?= $entry->title ?></h2>
-            <p><?= $entry->description ?></p></div>
+            <p><?= $entry->description ?></p></div></div>
             <?php
             if($breaker>30){
                 break;

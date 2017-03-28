@@ -66,6 +66,9 @@ function mover() {
                 }else if(state==2){
                     $('#weather').css('top','0');
                     state--;
+                }else if(state<-1){
+                    $('#feed').css('top',((state)*640).toString+'px');
+                    state--;
                 }
                 // if (state == -1) {
 
@@ -98,6 +101,9 @@ function mover() {
                 }else if(state ==1){
                     // $('#feed').css('top','2560px');
                     $('#weather').css('top','640px');
+                    state++;
+                } else if(state<-1){
+                    $('#feed').css('top',((state+1)*640).toString+'px');
                     state++;
                 }
                 // if (state == 0) {
