@@ -6,7 +6,7 @@ body {
 }
 
 .vignette-top {
-    position: fixed;
+    position: relative;
     box-shadow: inset 0px 125px 80px -80px rgba(0,0,0,0.75);
     top: 0;
     left: 0;
@@ -15,7 +15,7 @@ body {
     z-index: 2;
 }
 .vignette-bottom {
-    position: fixed;
+    position: relative;
     box-shadow: inset 0px -125px 80px -80px rgba(0,0,0,0.75);
     top: 0;
     left: 0;
