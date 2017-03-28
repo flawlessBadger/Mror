@@ -55,19 +55,15 @@ function mover() {
 
 
                 if(state ==0){
-                    $('#weather').css('top','-1920px');
                     $('#feed').css('top','0');
+                    $('#weather').css('top','-1920px');
                     state--;
-                }
-
-                if(state==1){
-                    $('#weather').css('top','-1280px');
+                } else if(state==1){
                     $('#feed').css('top','1280px');
+                    $('#weather').css('top','-1280px');
                     state--;
 
-                }
-
-                if(state==2){
+                }else if(state==2){
                     $('#weather').css('top','0');
                     state--;
                 }
@@ -92,18 +88,14 @@ function mover() {
             } else if (response == 2) {
 
                 if(state == -1){
-                    $('#weather').css('top','-1280px');
                     $('#feed').css('top','1280px');
+                    $('#weather').css('top','-1280px');
                     state++;
-                }
-
-                if(state ==0){
+                }else if(state ==0){
                     $('#feed').css('top','2560px');
                     $('#weather').css('top','0');
                     state++;
-                }
-
-                if(state ==1){
+                }else if(state ==1){
                     // $('#feed').css('top','2560px');
                     $('#weather').css('top','640px');
                     state++;
