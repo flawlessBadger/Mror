@@ -115,6 +115,10 @@ a:active {
     width:278px;
 }
 
+.rss-title {
+    font-weight: 500;
+}
+
 #maindeg {
     display: block;
     position: absolute;

@@ -40,7 +40,7 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
         foreach($entries as $entry){
             
             ?><div class="grid-item"><div class="line"></div>
-            <h2><?= $entry->title ?></h2>
+            <h2 class="rss-title"><?= $entry->title ?></h2>
             <p><?= $entry->description ?></p></div>
             <?php
             if($breaker>30){
