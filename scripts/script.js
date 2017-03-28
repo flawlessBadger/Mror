@@ -103,7 +103,7 @@ function mover() {
                     $('#weather').css('top','640px');
                     state++;
                 } else if(state<-1){
-                    $('#feed').css('top',((state+1)*640).toString+'px');
+                    $('#feed').css('top',((state+1)*640)+'px');
                     state++;
                 }
                 // if (state == 0) {
