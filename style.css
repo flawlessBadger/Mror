@@ -103,7 +103,6 @@ a:active {
     margin: 5px;
     overflow: hidden;
     max-height: 500px;
-    box-shadow: inset 0px -125px 80px -80px rgba(0,0,0,0.75);
 }
 .line {    
     margin: 0 20px 0 20px;

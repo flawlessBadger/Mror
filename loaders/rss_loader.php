@@ -1,18 +1,18 @@
         <?php
         //Feed URLs
         $link = mysql_connect('127.0.0.1', 'root', 'raspberry')
-    or die('Could not connect: ' . mysql_error());
-mysql_select_db('mror') or die('Could not select database');
+        or die('Could not connect: ' . mysql_error());
+        mysql_select_db('mror') or die('Could not select database');
 
 // Performing SQL query
-$query = 'SELECT link FROM feeds';
-$result = mysql_query($query) or die('Query failed: ' . mysql_error());
-$feeds = array();
-while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
-    foreach ($line as $col_value) {
-        $feeds[] = $col_value;
-    }
-}
+        $query = 'SELECT link FROM feeds';
+        $result = mysql_query($query) or die('Query failed: ' . mysql_error());
+        $feeds = array();
+        while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
+            foreach ($line as $col_value) {
+                $feeds[] = $col_value;
+            }
+        }
         // $feeds = mysql_fetch_array($result, MYSQL_ASSOC);
         // $feeds = array(
         //     "http://maxburstein.com/rss",
@@ -39,9 +39,9 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
         //Print all the entries
         foreach($entries as $entry){
             
-            ?><div class="grid-item"><div class="line"></div>
+            ?><div class="vignette-bottom"><div class="grid-item"><div class="line"></div>
             <h2 class="rss-title"><?= $entry->title ?></h2>
-            <p><?= $entry->description ?></p></div>
+            <p><?= $entry->description ?></p></div></div>
             <?php
             if($breaker>30){
                 break;
