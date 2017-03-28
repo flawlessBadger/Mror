@@ -2,7 +2,7 @@ body {
 	margin: 0;
 	background-color: black;
 	overflow: hidden;
-    
+
 }
 
 .vignette-top {
@@ -30,8 +30,6 @@ body {
 }
 
 h1 {
-	color: white;
-    font-family: 'Raleway', sans-serif;
     left: 0;
     line-height: 200px;
     margin: auto;
@@ -56,7 +54,7 @@ img {
 
 h1, h2,h3,h4,h5,h6, p {
     font-family: 'Raleway', sans-serif;
-    font-weight: 400;
+    font-weight: 100;
     color: white;
 }
 
@@ -142,7 +140,7 @@ a:active {
 }
 
 #inhum {
-    
+
     display: block;
     position: absolute;
     right: 250px;
