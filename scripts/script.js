@@ -50,10 +50,10 @@ function mover() {
         if (this.readyState == 4 && this.status == 200) {
             var response = parseInt(this.responseText);
 
-    console.log("movement");
+            console.log("movement");
             if (response == 0) {
-            $('#feed').css('top','0');
-            $('#weather').css('top','-2560px');
+                $('#feed').css('top','0');
+                $('#weather').css('top','-2560px');
 
                 // if (state == -1) {
 
@@ -74,8 +74,8 @@ function mover() {
                 // $("#feed").animate({ top: m }, 700);
                 // console.log(m);
             } else if (response == 2) {
-            $('#weather').css('top','-1280px');
-            $('#feed').css('top','1280px');
+                $('#weather').css('top','-1280px');
+                $('#feed').css('top','1280px');
 
                 // if (state == 0) {
                 //     var m = $("#feed").offset().top - 1280;
@@ -91,7 +91,7 @@ function mover() {
                 //     state--;
                 // }
             } else if(response == 3) {
-    setTimeout(reloadPage, 300);
+                setTimeout(reloadPage, 300);
 
             }
             mover();
@@ -199,4 +199,3 @@ $(document).ready(function () {
 
     // document.getElementById("a").innerHTML = $(window).width() + "<br>" + $(window).height();
 });
-

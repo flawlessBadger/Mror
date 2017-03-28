@@ -5,16 +5,28 @@ body {
     
 }
 
-.vignette {
+.vignette-top {
     position: fixed;
--webkit-box-shadow: inset 0px 0px 80px 80px rgba(0,0,0,0.75);
--moz-box-shadow: inset 0px 0px 80px 80px rgba(0,0,0,0.75);
-    box-shadow: inset 0px 0px 80px 80px rgba(0,0,0,0.75);
+    -webkit-box-shadow: inset 0px 125px 80px -80px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 125px 80px -80px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 125px 80px -80px rgba(0,0,0,0.75);
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 2;
+}
+.vignette-bottom {
+    position: fixed;
+    -webkit-box-shadow: inset 0px -125px 80px -80px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px -125px 80px -80px rgba(0,0,0,0.75);
+    box-shadow: inset 0px -125px 80px -80px rgba(0,0,0,0.75);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+
 }
 
 h1 {
@@ -31,7 +43,7 @@ h1 {
     font-size: 200px;
 }
 img {
-        display: none;
+    display: none;
 }
 #house {
     display: block;
@@ -44,6 +56,7 @@ img {
 
 h1, h2,h3,h4,h5,h6, p {
     font-family: 'Raleway', sans-serif;
+    font-weight: 400;
     color: white;
 }
 
@@ -54,7 +67,7 @@ h1, h2,h3,h4,h5,h6, p {
     left: 0;
     height: 1920px;
     width: 1080px;
-     -webkit-transition: top 1s; 
+    -webkit-transition: top 1s; 
     transition: top 1s;
 }
 
@@ -63,7 +76,7 @@ h1, h2,h3,h4,h5,h6, p {
     top: 1280px;
     left: 48px;
     width: 984px;  
-     -webkit-transition: top 1s; 
+    -webkit-transition: top 1s; 
     transition: top 1s;
 }
 a:link {
