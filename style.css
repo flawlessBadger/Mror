@@ -30,6 +30,7 @@ h1 {
     line-height: 200px;
     margin: auto;
     margin-top: -200px;
+    margin-right: -80px;
     position: absolute;
     bottom: -300px;
     width: 100%; 
