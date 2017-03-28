@@ -6,7 +6,7 @@ body {
 }
 
 .vignette-top {
-    position: relative;
+    position: absolute;
     box-shadow: inset 0px 125px 80px -80px rgba(0,0,0,0.75);
     top: 0;
     left: 0;
@@ -15,7 +15,7 @@ body {
     z-index: 2;
 }
 .vignette-bottom {
-    position: relative;
+    position: absolute;
     box-shadow: inset 0px -125px 80px -80px rgba(0,0,0,0.75);
     top: 0;
     left: 0;
@@ -44,6 +44,14 @@ img {
     position: absolute;
     right: 100px;
     bottom: 50px;
+    width: 500px;
+    height: 500px;
+}
+#house {
+    display: block;
+    position: absolute;
+    right: 100px;
+    top: 50px;
     width: 500px;
     height: 500px;
 }

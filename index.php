@@ -23,6 +23,7 @@
         <div id="weather">
             <img id="house" src="res/house.png">
 
+            <img id="rhouse" src="res/house.png">
 
         </div>
         <div id="feed">
