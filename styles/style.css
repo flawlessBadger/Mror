@@ -273,9 +273,9 @@ a:active {
     position: absolute;
     width: 100%;
     text-align: center;
-    bottom: 10px;
+    bottom: -50px;
     left: 0;
-    font-size: 80px;
+    font-size: 150px;
 }
 
 
