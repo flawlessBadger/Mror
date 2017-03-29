@@ -228,7 +228,6 @@ $(document).ready(function () {
         },
     });
 
-    GetClock();
     setInterval(GetClock,1000);
 
     // document.getElementById("a").innerHTML = $(window).width() + "<br>" + $(window).height();
@@ -240,14 +239,14 @@ var tmonth=new Array("January","February","March","April","May","June","July","A
 
 
 function GetClock(){
-var d=new Date();
-var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate();
-var nhour=d.getHours(),nmin=d.getMinutes();
-if(nmin<=9) nmin="0"+nmin;
+    var d=new Date();
+    var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate();
+    var nhour=d.getHours(),nmin=d.getMinutes();
+    if(nmin<=9) nmin="0"+nmin;
 
-document.getElementById('time').innerHTML=""+nhour+":"+nmin+"";
+    document.getElementById('time').innerHTML=""+nhour+":"+nmin+"";
 
-document.getElementById('date').innerHTML=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+"";
+    document.getElementById('date').innerHTML=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+"";
 }
 
 
