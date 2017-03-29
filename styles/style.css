@@ -27,27 +27,27 @@ body {
 
 #time {
     left: 0;
-    line-height: 370px;
+    line-height: 340px;
     margin: auto;
     margin-top: -150px;
     position: absolute;
     bottom: -450px;
     width: 100%; 
     text-align: center;
-    font-size: 370px;
+    font-size: 340px;
 
 }
 
 #date {
     left: 0;
-    line-height: 70px;
+    line-height: 60px;
     margin: auto;
     margin-top: -500px;
     position: absolute;
     bottom: -550px;
     width: 100%; 
     text-align: center;
-    font-size: 70px;
+    font-size: 60px;
     color: #BDBDBD; 
 }
 
