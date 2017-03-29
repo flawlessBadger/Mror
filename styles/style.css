@@ -209,15 +209,15 @@ a:active {
 }
 
 .for-zero {
-    top: 640px;
+    top: 630px;
     left: 48px;
 }
 .for-one {
-    top: 640px;
+    top: 630px;
     left:380px;
 }
 .for-two {
-    top: 640px;
+    top: 630px;
     left: 712px;
 }
 .for-three {
@@ -249,7 +249,7 @@ a:active {
 .forecast .left {
     position: absolute;
     width:50%;
-    top:45px;
+    top:48px;
     left: -10px;
     text-align: right;
     font-size: 50px;
@@ -259,7 +259,7 @@ a:active {
 .forecast .right {
     position: absolute;
     width:50%;
-    top:45px;
+    top:48px;
     left: 170px;
     text-align: left;
     font-size: 50px;

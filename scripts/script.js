@@ -219,7 +219,7 @@ $(document).ready(function () {
             html += '<h2 id="city"><i class="icon-'+weather.code+'"></i></h2>';
             html += '<h2 id="intemp"></h2><h2 id="inhum"></h2>';
 
-            html += '<img id="house" src="res/house.png"><img id="rhouse" src="res/house.png">';
+            html += '<img id="house" src="res/house.png">';
             html += '<div id="weatherline"></div>    <H1 id="time" ></H1><H5 id="date" ></H5>';
             html += '<div class="forecast for-zero"><p class="icon"><b class="icon-'+weather.forecast[0].code+'"></b></p><p class="day">'+weather.forecast[0].day+'<p class="left">H</br>'+weather.forecast[0].high+'&deg;' + weather.units.temp + '</p><p class="right">L</br>'+weather.forecast[0].low+'&deg;' + weather.units.temp + '</p></p><div class="div"></div></div>';
             html += '<div class="forecast for-one"><p class="icon"><b class="icon-'+weather.forecast[1].code+'"></b></p><p class="day">'+weather.forecast[1].day+'<p class="left">H</br>'+weather.forecast[1].high+'&deg;' + weather.units.temp + '</p><p class="right">L</br>'+weather.forecast[0].low+'&deg;' + weather.units.temp + '</p></p><div class="div"></div></div>';
