@@ -39,8 +39,8 @@ h1, h2,h3,h4,h5,h6, p {
     position: absolute;
     bottom: -480px;
     width: 100%; 
-    text-align: center;
-    font-size: 340px;
+    text-align: left;
+    font-size: 360px;
     font-weight: 300;
 
 }
@@ -131,13 +131,13 @@ a:active {
     margin: 5px;
     overflow: hidden;
     max-height: 500px;
-    line-height: 1em;
+    line-height: 1.2em;
 }
 .line {    
-    margin: 0 00px 0 0px;
+    margin: 0 10px 0 0px;
     background-color: #f2f2f2;
     height: 2px;
-    width:318px;
+    width:308px;
 }
 
 .rss-title {
@@ -148,9 +148,9 @@ a:active {
     display: block;
     position: absolute;
     width:500px;
-    text-align: center;
-    left: 25px;
-    bottom: -115px;
+    text-align: left;
+    left: 75px;
+    bottom: -150px;
     font-size: 170px;
 }
 
@@ -158,8 +158,8 @@ a:active {
     display: block;
     position: absolute;
     width:500px;
-    text-align: center;
-    left: -25px;
+    text-align: left;
+    left: 50px;
     bottom: 170px;
     /*font-size: 300px;*/
 }
@@ -170,7 +170,7 @@ a:active {
     width:500px;
     text-align: center;
     right: 80px;
-    bottom: 75px;
+    bottom: 45px;
     font-size: 130px;
 }
 
@@ -180,7 +180,7 @@ a:active {
     width:500px;
     text-align: center;
     right: 80px;
-    bottom: 45px;
+    bottom: 25px;
     font-size: 80px;
 }
 #weatherline {
