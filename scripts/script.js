@@ -216,7 +216,8 @@ $(document).ready(function () {
         success: function (weather) {
             console.log(weather.temp + '&deg;' + weather.units.temp);
             var html = '<h2 id="maindeg">' + weather.temp + '&deg;' + weather.units.temp + '</h2>';
-            html += '<h2 id="city"><i class="icon-'+weather.code+'"></i></h2>';
+            // html += '<h2 id="city"><i class="icon-'+weather.code+'"></i></h2>';
+            html += '<h2 id="city"><i class="icon-NW"></i></h2>';
             html += '<h2 id="intemp"></h2><h2 id="inhum"></h2>'
 
             html += '<img id="house" src="res/house.png"><img id="rhouse" src="res/house.png">';
