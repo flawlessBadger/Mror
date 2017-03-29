@@ -311,14 +311,14 @@ a:active {
 
 .sunrise {
     position: absolute;
-    top:130px;
+    top:140px;
     left: 70px;
     font-size: 95px;
 }
 
 .sunset {
     position: absolute;
-    top:130px;
+    top:140px;
     right: 70px;
     font-size: 95px;
 }
