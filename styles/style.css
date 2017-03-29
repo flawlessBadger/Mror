@@ -235,7 +235,7 @@ a:active {
     position: absolute;
     width: 100%;
     text-align: center;
-    top:0px;
+    top:-30px;
     left: 0;
     font-size: 80px;
 }
