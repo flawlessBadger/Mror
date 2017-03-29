@@ -243,9 +243,9 @@ a:active {
 .forecast .div {
     position: absolute;
     width:2px;
-    top:105px;
+    top:100px;
     left: 159px;
-    height: 120px;
+    height: 100px;
     background-color: white;
 }
 .forecast .left {
@@ -267,6 +267,15 @@ a:active {
     font-size: 50px;
     line-height: 1.2em;
     color: #E0E0E0;
+}
+
+.forecast icon {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 10px;
+    left: 0;
+    font-size: 80px;
 }
 
 
