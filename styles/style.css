@@ -39,7 +39,7 @@ h1, h2,h3,h4,h5,h6, p {
     position: absolute;
     bottom: -480px;
     width: 100%; 
-    text-align: left;
+    text-align: center;
     font-size: 360px;
     font-weight: 300;
 
@@ -148,7 +148,7 @@ a:active {
     display: block;
     position: absolute;
     width:500px;
-    text-align: left;
+    text-align: right;
     left: 75px;
     bottom: -150px;
     font-size: 170px;
@@ -158,7 +158,7 @@ a:active {
     display: block;
     position: absolute;
     width:500px;
-    text-align: left;
+    text-align: right;
     left: 50px;
     bottom: 170px;
     /*font-size: 300px;*/
@@ -170,7 +170,7 @@ a:active {
     width:500px;
     text-align: center;
     right: 80px;
-    bottom: 45px;
+    bottom: 35px;
     font-size: 130px;
 }
 
@@ -180,7 +180,7 @@ a:active {
     width:500px;
     text-align: center;
     right: 80px;
-    bottom: 25px;
+    bottom: 20px;
     font-size: 80px;
 }
 #weatherline {
