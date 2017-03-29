@@ -4,7 +4,8 @@
     <HEAD>
         <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="styles/style.css">
+        <link rel="stylesheet" type="text/css" href="styles/icons.css">
         <script src="scripts/jquery.min.js"></script>
         <script src="scripts/jquery-ui.min.js"></script>
         <script src="scripts/jquery.simpleWeather.min.js"></script>
