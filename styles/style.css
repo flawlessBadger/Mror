@@ -209,15 +209,15 @@ a:active {
 }
 
 .for-zero {
-    top: 630px;
+    top: 620px;
     left: 48px;
 }
 .for-one {
-    top: 630px;
+    top: 620px;
     left:380px;
 }
 .for-two {
-    top: 630px;
+    top: 620px;
     left: 712px;
 }
 .for-three {
@@ -278,7 +278,7 @@ a:active {
 
 .fl-1 {
     position: absolute;
-    top: 640px;
+    top: 960px;
     left: 48px;
     width: 984px;
     height: 4px;
