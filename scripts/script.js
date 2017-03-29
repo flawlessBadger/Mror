@@ -222,6 +222,11 @@ $(document).ready(function () {
             html += '<img id="house" src="res/house.png"><img id="rhouse" src="res/house.png">';
             html += '<div id="weatherline"></div>    <H1 id="time" ></H1><H5 id="date" ></H5>';
             html += '<div class="forecast for-zero"><p class="icon"><b class="icon-'+weather.forecast[0].code+'"></b></p><p class="day">'+weather.forecast[0].day+'<p class="left">H</br>'+weather.forecast[0].high+'&deg;' + weather.units.temp + '</p><p class="right">L</br>'+weather.forecast[0].low+'&deg;' + weather.units.temp + '</p></p><div class="div"></div></div>';
+            html += '<div class="forecast for-one"><p class="icon"><b class="icon-'+weather.forecast[1].code+'"></b></p><p class="day">'+weather.forecast[1].day+'<p class="left">H</br>'+weather.forecast[1].high+'&deg;' + weather.units.temp + '</p><p class="right">L</br>'+weather.forecast[0].low+'&deg;' + weather.units.temp + '</p></p><div class="div"></div></div>';
+            html += '<div class="forecast for-two"><p class="icon"><b class="icon-'+weather.forecast[2].code+'"></b></p><p class="day">'+weather.forecast[2].day+'<p class="left">H</br>'+weather.forecast[2].high+'&deg;' + weather.units.temp + '</p><p class="right">L</br>'+weather.forecast[0].low+'&deg;' + weather.units.temp + '</p></p><div class="div"></div></div>';
+            html += '<div class="forecast for-three"><p class="icon"><b class="icon-'+weather.forecast[3].code+'"></b></p><p class="day">'+weather.forecast[3].day+'<p class="left">H</br>'+weather.forecast[3].high+'&deg;' + weather.units.temp + '</p><p class="right">L</br>'+weather.forecast[0].low+'&deg;' + weather.units.temp + '</p></p><div class="div"></div></div>';
+            html += '<div class="forecast for-four"><p class="icon"><b class="icon-'+weather.forecast[4].code+'"></b></p><p class="day">'+weather.forecast[4].day+'<p class="left">H</br>'+weather.forecast[4].high+'&deg;' + weather.units.temp + '</p><p class="right">L</br>'+weather.forecast[0].low+'&deg;' + weather.units.temp + '</p></p><div class="div"></div></div>';
+
 // <div class="forecast for-one"></div><div class="forecast for-two"></div><div class="forecast for-three"></div><div class="forecast for-four"></div>';
             
 
