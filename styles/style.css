@@ -37,7 +37,7 @@ h1, h2,h3,h4,h5,h6, p {
     margin: auto;
     margin-top: -150px;
     position: absolute;
-    bottom: -450px;
+    bottom: -480px;
     width: 100%; 
     text-align: center;
     font-size: 340px;
@@ -131,12 +131,13 @@ a:active {
     margin: 5px;
     overflow: hidden;
     max-height: 500px;
+    line-height: 1em;
 }
 .line {    
-    margin: 0 00px 0 20px;
+    margin: 0 00px 0 0px;
     background-color: #f2f2f2;
     height: 2px;
-    width:278px;
+    width:318px;
 }
 
 .rss-title {
