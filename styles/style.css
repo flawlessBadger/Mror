@@ -254,6 +254,7 @@ a:active {
     left: -5px;
     text-align: right;
     font-size: 50px;
+    line-height: 1.2em;
 }
 .forecast .right {
     position: absolute;
@@ -262,6 +263,7 @@ a:active {
     left: 165px;
     text-align: left;
     font-size: 50px;
+    line-height: 1.2em;
 }
 
 
