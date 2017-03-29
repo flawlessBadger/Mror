@@ -131,7 +131,7 @@ a:active {
     margin: 5px;
     overflow: hidden;
     max-height: 500px;
-    line-height: 1.2em;
+    line-height: 1.4em;
 }
 .line {    
     margin: 0 10px 0 0px;
@@ -148,8 +148,8 @@ a:active {
     display: block;
     position: absolute;
     width:500px;
-    text-align: right;
-    left: 75px;
+    text-align: left;
+    left: 95px;
     bottom: -150px;
     font-size: 170px;
 }
@@ -158,8 +158,8 @@ a:active {
     display: block;
     position: absolute;
     width:500px;
-    text-align: right;
-    left: 50px;
+    text-align: left;
+    left: 70px;
     bottom: 170px;
     /*font-size: 300px;*/
 }
