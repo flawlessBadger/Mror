@@ -276,6 +276,16 @@ a:active {
     font-size: 150px;
 }
 
+.fl-1 {
+    position: absolute;
+    top: 640px;
+    left: 48px;
+    width: 984px;
+    height: 4px;
+    background-color: white;
+
+}
+
 
 
 
