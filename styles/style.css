@@ -346,7 +346,7 @@ a:active {
 
 .additional {
     position: absolute;
-    top:00px;
+    top:-90px;
     left: 50px;
     text-align: left;
     font-size: 140px;

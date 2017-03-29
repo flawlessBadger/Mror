@@ -230,7 +230,7 @@ $(document).ready(function () {
             html += '<p class="sunrise">'+weather.sunrise+'<b class="icon-sunrise bigger"></b></p><p class="sunset"><b class="icon-sunset bigger"></b>'+weather.sunset+'</p>';
             html += '<p class="wind"><b class="icon-'+weather.wind.direction+'"></b></p>';
             html += '<p class="wind-speed">'+weather.wind.speed+'</br>'+weather.units.speed+'</p>';
-            html += '<p class="additional">'+weather.pressure+'in</br>'+weather.humidity+'%</p>';
+            html += '<p class="additional">'+weather.humidity+'%</p>';
 
 // <div class="forecast for-one"></div><div class="forecast for-two"></div><div class="forecast for-three"></div><div class="forecast for-four"></div>';
 
