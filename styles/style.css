@@ -278,14 +278,36 @@ a:active {
 
 .fl-1 {
     position: absolute;
-    top: 960px;
+    top: 965px;
     left: 48px;
     width: 984px;
     height: 4px;
     background-color: white;
-
 }
-
+.fl-2 {
+    position: absolute;
+    top: 965px;
+    left: 538px;
+    width: 4px;
+    height: 345px;
+    background-color: white;
+}
+.fl-2 {
+    position: absolute;
+    top: 965px;
+    left: 378px;
+    width: 4px;
+    height: 345px;
+    background-color: white;
+}
+.fl-2 {
+    position: absolute;
+    top: 965px;
+    left: 710px;
+    width: 4px;
+    height: 345px;
+    background-color: white;
+}
 
 
 
