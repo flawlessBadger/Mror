@@ -231,6 +231,15 @@ a:active {
     left:546px;
 }
 
+.forecast .day {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top:10px;
+    left: 0;
+    font-size: 80px;
+}
+
 
 
 
