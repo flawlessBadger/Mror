@@ -229,7 +229,7 @@ $(document).ready(function () {
             html += '<div class="forecast for-four"><p class="icon"><b class="icon-'+weather.forecast[4].code+'"></b></p><p class="day">'+weather.forecast[4].day+'<p class="left">H</br>'+weather.forecast[4].high+'&deg;' + weather.units.temp + '</p><p class="right">L</br>'+weather.forecast[0].low+'&deg;' + weather.units.temp + '</p></p><div class="div"></div></div>';
             html += '<p class="sunrise">'+weather.sunrise+'<b class="icon-sunrise bigger"></b></p><p class="sunset"><b class="icon-sunset bigger"></b>'+weather.sunset+'</p>';
             html += '<p class="wind"><b class="icon-'+weather.wind.direction+'"></b></p>';
-
+            html += '<p class="wind-speed">'+weather.wind.speed+'</ br>'+weather.units.speed+'</p>';
 // <div class="forecast for-one"></div><div class="forecast for-two"></div><div class="forecast for-three"></div><div class="forecast for-four"></div>';
 
 

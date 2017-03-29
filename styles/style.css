@@ -334,6 +334,15 @@ a:active {
     font-size: 725px;
 }
 
+.wind-speed {
+    position: absolute;
+    top:70px;
+    left: 400px;
+    text-align: right;
+    font-size: 250px;
+    line-height: 1.05em;
+    color: #E0E0E0;
+}
 
 
 
