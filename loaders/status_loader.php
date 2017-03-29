@@ -5,8 +5,7 @@ $link = mysql_connect('127.0.0.1', 'root', 'raspberry')
 mysql_select_db('mror') or die('Could not select database');
 
 // Performing SQL query
-$query = 'SELECT temp, hum FROM indoor_weather ORDER  BY timestamp DESC
-LIMIT  1';
+$query = 'SELECT name, status FROM modules ORDER  BY name DESC';
 $result = mysql_query($query) or die('Query failed: ' . mysql_error());
 
 // Printing results in HTML

@@ -220,7 +220,7 @@ $(document).ready(function () {
             html += '<h2 id="intemp"></h2><h2 id="inhum"></h2>'
 
             html += '<img id="house" src="res/house.png"><img id="rhouse" src="res/house.png">';
-            html += '<div id="weatherline"></div>    <H1 id="time" ></H1><H5 id="date" >Hello</H5>'
+            html += '<div id="weatherline"></div>    <H1 id="time" ></H1><H5 id="date" ></H5>'
             // $("#maindeg").text(weather.temp + '&deg;' + weather.units.temp);
 
             $("#weather").html(html);
