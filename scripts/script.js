@@ -221,7 +221,7 @@ $(document).ready(function () {
 
             html += '<img id="house" src="res/house.png"><img id="rhouse" src="res/house.png">';
             html += '<div id="weatherline"></div>    <H1 id="time" ></H1><H5 id="date" ></H5>';
-            html += '<div class="forecast for-zero"><p class="day">'+forecast[0].day+'</p></div>';
+            html += '<div class="forecast for-zero"><p class="day">'+weather.forecast[0].day+'</p></div>';
 // <div class="forecast for-one"></div><div class="forecast for-two"></div><div class="forecast for-three"></div><div class="forecast for-four"></div>';
             
 
