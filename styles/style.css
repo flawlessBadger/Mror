@@ -232,10 +232,10 @@ a:active {
 }
 
 .forecast .day {
-    position: fixed;
+    position: absolute;
     width: 100%;
     text-align: center;
-    top:30px;
+    top:-30px;
     left: 0;
     font-size: 80px;
 }
@@ -243,7 +243,23 @@ a:active {
 .forecast .div {
     position: absolute;
     width:2px;
-
+    top:110px;
+    left: 159px;
+    height: 100px;
+}
+.forecast .left {
+    position: absolute;
+    width:50%;
+    top:110px;
+    left: -5px;
+    text-align: right;
+}
+.forecast .right {
+    position: absolute;
+    width:50%;
+    top:110px;
+    left: 165px;
+    text-align: left;
 }
 
 
