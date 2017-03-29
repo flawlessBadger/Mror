@@ -232,12 +232,18 @@ a:active {
 }
 
 .forecast .day {
-    position: absolute;
+    position: fixed;
     width: 100%;
     text-align: center;
-    top:-30px;
+    top:30px;
     left: 0;
     font-size: 80px;
+}
+
+.forecast .div {
+    position: absolute;
+    width:2px;
+
 }
 
 
