@@ -145,7 +145,7 @@ a:active {
     position: absolute;
     width:500px;
     text-align: center;
-    left: 50px;
+    left: 25px;
     bottom: -115px;
     font-size: 170px;
 }
@@ -155,8 +155,8 @@ a:active {
     position: absolute;
     width:500px;
     text-align: center;
-    left: 30px;
-    bottom: 200px;
+    left: 10px;
+    bottom: 170px;
     /*font-size: 300px;*/
 }
 
