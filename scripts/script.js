@@ -207,6 +207,8 @@ $(document).ready(function () {
     });
 
 
+
+
     $.simpleWeather({
         woeid: '821782', //2357536
         location: '',
@@ -218,7 +220,7 @@ $(document).ready(function () {
             html += '<h2 id="intemp"></h2><h2 id="inhum"></h2>'
 
             html += '<img id="house" src="res/house.png"><img id="rhouse" src="res/house.png">';
-            html += '<div id="weatherline"></div>    <H1 id="hello" >Hello</H1>'
+            html += '<div id="weatherline"></div>    <H1 id="time" >Hello</H1><H5 id="date" >Hello</H5>'
             // $("#maindeg").text(weather.temp + '&deg;' + weather.units.temp);
 
             $("#weather").html(html);
@@ -226,5 +228,32 @@ $(document).ready(function () {
         },
     });
 
+    GetClock();
+    setInterval(GetClock,1000);
+
     // document.getElementById("a").innerHTML = $(window).width() + "<br>" + $(window).height();
 });
+
+var tday=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+var tmonth=new Array("January","February","March","April","May","June","July","August","September","October","November","December");
+
+function GetDate(){
+var d=new Date();
+var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate();
+
+document.getElementById('hello').innerHTML=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+"";
+}
+
+function GetClock(){
+var d=new Date();
+var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate();
+var nhour=d.getHours(),nmin=d.getMinutes();
+if(nmin<=9) nmin="0"+nmin
+
+document.getElementById('time').innerHTML=""+nhour+":"+nmin+"";
+
+document.getElementById('date').innerHTML=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+"";
+}
+
+
+
