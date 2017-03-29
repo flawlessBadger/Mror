@@ -217,10 +217,11 @@ $(document).ready(function () {
             console.log(weather.temp + '&deg;' + weather.units.temp);
             var html = '<h2 id="maindeg">' + weather.temp + '&deg;' + weather.units.temp + '</h2>';
             html += '<h2 id="city"><i class="icon-'+weather.code+'"></i></h2>';
-            html += '<h2 id="intemp"></h2><h2 id="inhum"></h2>'
+            html += '<h2 id="intemp"></h2><h2 id="inhum"></h2>';
 
             html += '<img id="house" src="res/house.png"><img id="rhouse" src="res/house.png">';
-            html += '<div id="weatherline"></div>    <H1 id="time" ></H1><H5 id="date" ></H5>'
+            html += '<div id="weatherline"></div>    <H1 id="time" ></H1><H5 id="date" ></H5>';
+            html += '<div class="forecast for-zero"></div><div class="forecast for-one"></div><div class="forecast for-two"></div><div class="forecast for-three"></div><div class="forecast for-four"></div>';
             // $("#maindeg").text(weather.temp + '&deg;' + weather.units.temp);
 
             $("#weather").html(html);

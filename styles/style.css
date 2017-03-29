@@ -201,3 +201,40 @@ a:active {
 .trans {
     top:0;
 }
+
+.forecast {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-style: solid;
+    border-color: #ffffff;
+}
+
+.for-zero {
+    top: 640px;
+    left: 48px;
+}
+.for-one {
+    top: 640px;
+    left:380px;
+}
+.for-two {
+    top: 640px;
+    left: 712px;
+}
+.for-three {
+    top: 960px;
+    left: 214px;
+}
+.for-four {
+    top: 960px;
+    left:546px;
+}
+
+
+
+
+
+
+
+
