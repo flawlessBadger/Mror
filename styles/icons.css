@@ -62,3 +62,11 @@
 .icon-45:before { content: "S"; }
 .icon-46:before { content: "U"; }
 .icon-47:before { content: "S"; }
+.icon-N:before { content: "&#35;"; }
+.icon-S:before { content: "&#191;"; }
+.icon-W:before { content: "&#39;"; }
+.icon-E:before { content: "&#135;"; }
+.icon-NW:before { content: "&#59;"; }
+.icon-NE:before { content: "&#46;"; }
+.icon-SW:before { content: "&#34;"; } 
+.icon-SE:before { content: "&#46;"; }
