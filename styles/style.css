@@ -58,7 +58,7 @@ img {
 #house {
     display: block;
     position: absolute;
-    right: 100px;
+    right: 80px;
     bottom: 50px;
     width: 500px;
     height: 500px;
@@ -146,7 +146,7 @@ a:active {
     width:500px;
     text-align: center;
     left: 50px;
-    bottom: -130px;
+    bottom: -115px;
     font-size: 170px;
 }
 
@@ -155,7 +155,7 @@ a:active {
     position: absolute;
     width:500px;
     text-align: center;
-    left: 50px;
+    left: 30px;
     bottom: 200px;
     /*font-size: 300px;*/
 }
@@ -165,7 +165,7 @@ a:active {
     position: absolute;
     width:500px;
     text-align: center;
-    right: 100px;
+    right: 80px;
     bottom: 75px;
     font-size: 130px;
 }
@@ -175,7 +175,7 @@ a:active {
     position: absolute;
     width:500px;
     text-align: center;
-    right: 100px;
+    right: 80px;
     bottom: 45px;
     font-size: 80px;
 }
