@@ -162,16 +162,17 @@ a:active {
     width:500px;
     text-align: center;
     right: 100px;
-    bottom: 70px;
+    bottom: 75px;
     font-size: 130px;
 }
 
 #inhum {
-
     display: block;
     position: absolute;
-    right: 250px;
-    bottom: 30px;
+    width:500px;
+    text-align: center;
+    right: 100px;
+    bottom: 35px;
     font-size: 80px;
 }
 #weatherline {
