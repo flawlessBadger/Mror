@@ -120,7 +120,7 @@ function mover() {
                 //     state--;
                 // }
             } else if(response == 3) {
-                setTimeout(reloadPage, 300);
+                setTimeout(reloadPage, 50);
 
             }
             mover();
