@@ -269,7 +269,7 @@ a:active {
     color: #E0E0E0;
 }
 
-.forecast icon {
+.forecast .icon {
     position: absolute;
     width: 100%;
     text-align: center;
