@@ -309,6 +309,20 @@ a:active {
     background-color: white;
 }
 
+.sunrise {
+    position: absolute;
+    top:500px;
+    left: 48;
+    font-size: 90px;
+}
+
+.sunset {
+    position: absolute;
+    top:500px;
+    right: 48;
+    font-size: 90px;
+}
+
 
 
 

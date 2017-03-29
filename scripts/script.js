@@ -227,7 +227,7 @@ $(document).ready(function () {
             html += '<div class="forecast for-two"><p class="icon"><b class="icon-'+weather.forecast[2].code+'"></b></p><p class="day">'+weather.forecast[2].day+'<p class="left">H</br>'+weather.forecast[2].high+'&deg;' + weather.units.temp + '</p><p class="right">L</br>'+weather.forecast[0].low+'&deg;' + weather.units.temp + '</p></p><div class="div"></div></div>';
             html += '<div class="forecast for-three"><p class="icon"><b class="icon-'+weather.forecast[3].code+'"></b></p><p class="day">'+weather.forecast[3].day+'<p class="left">H</br>'+weather.forecast[3].high+'&deg;' + weather.units.temp + '</p><p class="right">L</br>'+weather.forecast[0].low+'&deg;' + weather.units.temp + '</p></p><div class="div"></div></div>';
             html += '<div class="forecast for-four"><p class="icon"><b class="icon-'+weather.forecast[4].code+'"></b></p><p class="day">'+weather.forecast[4].day+'<p class="left">H</br>'+weather.forecast[4].high+'&deg;' + weather.units.temp + '</p><p class="right">L</br>'+weather.forecast[0].low+'&deg;' + weather.units.temp + '</p></p><div class="div"></div></div>';
-
+            html += '<p class="sunrise">'+weather.sunrise+'</p><p class="sunset">'+weather.sunset+'</p>';
 // <div class="forecast for-one"></div><div class="forecast for-two"></div><div class="forecast for-three"></div><div class="forecast for-four"></div>';
 
 
