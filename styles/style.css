@@ -131,8 +131,13 @@ a:active {
     margin: 5px;
     overflow: hidden;
     max-height: 500px;
-    line-height: 1.4em;
+    line-height: 1.7em;
 }
+
+.grid-item p {
+    line-height: 1.2em;
+}
+
 .line {    
     margin: 0 10px 0 0px;
     background-color: #f2f2f2;
@@ -159,7 +164,7 @@ a:active {
     position: absolute;
     width:500px;
     text-align: left;
-    left: 100px;
+    left: 115px;
     bottom: 170px;
     /*font-size: 300px;*/
 }
