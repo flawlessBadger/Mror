@@ -235,7 +235,7 @@ a:active {
     position: absolute;
     width: 100%;
     text-align: center;
-    top:-80px;
+    top:-85px;
     left: 0;
     font-size: 80px;
 }
@@ -243,7 +243,7 @@ a:active {
 .forecast .div {
     position: absolute;
     width:2px;
-    top:80px;
+    top:110px;
     left: 159px;
     height: 100px;
     background-color: white;
@@ -256,6 +256,7 @@ a:active {
     text-align: right;
     font-size: 50px;
     line-height: 1.2em;
+    color: #E0E0E0;
 }
 .forecast .right {
     position: absolute;
@@ -265,6 +266,7 @@ a:active {
     text-align: left;
     font-size: 50px;
     line-height: 1.2em;
+    color: #E0E0E0;
 }
 
 
