@@ -4,6 +4,11 @@ body {
 	overflow: hidden;
 
 }
+h1, h2,h3,h4,h5,h6, p {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    color: white;
+}
 
 .vignette-top {
     position: absolute;
@@ -35,6 +40,7 @@ body {
     width: 100%; 
     text-align: center;
     font-size: 340px;
+    font-weight: 300;
 
 }
 
@@ -73,11 +79,7 @@ img {
     height: 500px;
 }
 
-h1, h2,h3,h4,h5,h6, p {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 400;
-    color: white;
-}
+
 
 #weather {    
     z-index:5;
