@@ -402,7 +402,7 @@ a:active {
     top:0;
     position: absolute;
     width: 400px;
-    left: 200px;
+    left: 50px;
     text-align: left;
     font-size: 50px;
     height: 55px;
@@ -412,7 +412,7 @@ a:active {
     height: 55px;
     position: absolute;
     width: 400px;
-    right: 200px;
+    right: 350px;
     text-align: center;
     font-size: 50px;
     color: #2ecc71;
@@ -423,7 +423,7 @@ a:active {
 
     position: absolute;
     width: 400px;
-    right: 200px;
+    right: 350px;
     text-align: center;
     font-size: 50px;
     color: #f1c40f;
@@ -433,7 +433,7 @@ a:active {
     height: 55px;
     position: absolute;
     width: 400px;
-    right: 200px;
+    right: 350px;
     text-align: center;
     font-size: 50px;
     color: #e74c3c;
