@@ -22,7 +22,7 @@
         </div>
         <div class="vignette-bottom">
         </div>
-        <audio id="music" src="res/Swooshing.wav" preload="auto"></audio>
+        <div id="status"></div>
         <div id="weather">
             no connection
         </div>

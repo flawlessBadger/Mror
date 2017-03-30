@@ -367,5 +367,16 @@ a:active {
 }
 
 
+.status {
+    position: absolute;
+    width: 100%;
+    height: 640px;
+    top:-640px;
+    background-color: white;
+    -webkit-transition: top 1s; 
+    transition: top 1s;
+}
+
+
 
 
