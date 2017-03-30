@@ -20,11 +20,11 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
 			$b=false;
 		} else{
 			echo $col_value;
-			echo '">•</p>';
+			echo '">⚫</p>';
 		}
 
 	}
-	echo '</div><div class="status-line"></div>';
+	echo '</div>';
 }
 
 // Free resultset
