@@ -3,7 +3,7 @@
 
 body {
 	margin: 0;
-	background-color: red;
+	background-color: black;
 	overflow: hidden;
 
 }
@@ -334,13 +334,13 @@ a:active {
     position: absolute;
     right: 110px;
     top: -650px;
-    font-size: 500px;
+    font-size: 540px;
 }
 
 .wind-speed {
     position: absolute;
-    top:-00px;
-    right: 430px;
+    top:50px;
+    right: 400px;
     text-align: right;
     font-size: 90px;
     line-height: 0.9em;

@@ -241,7 +241,7 @@ $(document).ready(function () {
             html += '<p class="sunrise">'+weather.sunrise+'<b class="icon-sunrise bigger"></b></p><p class="sunset">'+weather.sunset+'<b class="icon-sunset bigger"></b></p>';
             html += '<p class="wind"><b class="icon-'+weather.wind.direction+'"></b></p>';
             html += '<p class="wind-speed">'+weather.wind.speed+'</br>'+weather.units.speed+'</p>';
-            html += '<p class="additional">'+weather.humidity+'</br>%<b class="icon-hum"></b></p>';
+            html += '<p class="additional">'+weather.humidity+'</br><b class="percent">%</b><b class="icon-hum humicon"></b></p>';
 
 // <div class="forecast for-one"></div><div class="forecast for-two"></div><div class="forecast for-three"></div><div class="forecast for-four"></div>';
 
