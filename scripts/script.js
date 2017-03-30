@@ -25,8 +25,8 @@ function write() {
 function reloadPage() {
     // alert("watafack");
     // reload(true);
-    // window.location.href = 'http://localhost';
-    location.reload(true);
+    window.location.href = 'http://localhost';
+    // location.reload(true);
     // $.ajax({
     //     url: window.location.href,
     //     headers: {
