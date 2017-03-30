@@ -24,7 +24,7 @@
         </div>
         <audio id="music" src="res/Swooshing.wav" preload="auto"></audio>
         <div id="weather">
-
+            no connection
         </div>
         <div id="feed">
             <div class="grid">
