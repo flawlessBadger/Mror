@@ -399,7 +399,7 @@ a:active {
     color: white;
 }
 .status-name {
-
+    top:0;
     position: absolute;
     width: 400px;
     left: 200px;
@@ -407,6 +407,7 @@ a:active {
     font-size: 50px;
 }
 .status-1 {
+    top:0;
 
     position: absolute;
     width: 400px;
@@ -416,6 +417,7 @@ a:active {
     color: green;
 }
 .status-2 {
+    top:0;
 
     position: absolute;
     width: 400px;
@@ -425,6 +427,7 @@ a:active {
     color: yellow;
 }
 .status-0 {
+    top:0;
 
     position: absolute;
     width: 400px;
