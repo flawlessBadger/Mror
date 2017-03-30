@@ -25,7 +25,7 @@ function write() {
 function reloadPage() {
     // alert("watafack");
     // reload(true);
-    window.location.href = 'http://localhost';
+    // window.location.href = 'http://localhost';
     // location.reload(true);
     // $.ajax({
     //     url: window.location.href,
@@ -37,7 +37,7 @@ function reloadPage() {
     // }).done(function () {
     //     window.location.reload(true);
     // });
-    // window.location.replace('http://localhost');
+    window.location.replace('http://localhost');
 }
 
 // var swoosh = new Audio("res/Swooshing.wav");
