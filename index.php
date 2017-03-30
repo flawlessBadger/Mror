@@ -2,9 +2,9 @@
 <HTML>
 
     <HEAD>
-        <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+<!--         <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Muli:200,300,400,600,700,800,900&amp;subset=latin-ext" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Muli:200,300,400,600,700,800,900&amp;subset=latin-ext" rel="stylesheet"> -->
         <link href="https://fonts.googleapis.com/css?family=Ek+Mukta:200,300,400,500,600,700,800&amp;subset=latin-ext" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="styles/style.css">
         <link rel="stylesheet" type="text/css" href="styles/icons.css">
