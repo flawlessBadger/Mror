@@ -1,5 +1,5 @@
 function write() {
-    console.log("start");
+    // console.log("start");
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -49,7 +49,7 @@ function playSound() {
 
 var state = 0;
 function mover() {
-    console.log("starth");
+    // console.log("starth");
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -61,7 +61,7 @@ function mover() {
         if (this.readyState == 4 && this.status == 200) {
             var response = parseInt(this.responseText);
 
-            console.log("movement");
+            // console.log("movement");
             if (response == 0) {
 
 
@@ -146,7 +146,7 @@ function mover() {
 }
 
 function tempload() {
-    console.log("temps");
+    // console.log("temps");
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
@@ -168,6 +168,27 @@ function tempload() {
     };
     xmlhttp.open("GET", "loaders/temp_loader.php", true);
     xmlhttp.send();
+}
+
+function statusload() {
+    // console.log("temps");
+    if (window.XMLHttpRequest) {
+        // code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // code for IE6, IE5
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+         console.log(this.responseText);
+         
+
+     }
+ };
+ xmlhttp.open("GET", "loaders/status_loader.php", true);
+ xmlhttp.send();
 }
 
 function move() {
@@ -210,7 +231,8 @@ $(document).ready(function () {
 
     setTimeout(mover, 300);
     // setTimeout(playSound, 500);
-    setTimeout(tempload, 2000);
+    // setTimeout(tempload, 1000);
+    statusload();
     // $("#mockup").delay(300).animate({ left: '0' }, 1000, "easeOutCubic");
     $('.grid').masonry({
         // options
@@ -251,7 +273,7 @@ $(document).ready(function () {
             // $("#maindeg").text(weather.temp + '&deg;' + weather.units.temp);
 
             $("#weather").html(html);
-
+            tempload();
         },
     });
 
