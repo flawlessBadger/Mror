@@ -389,7 +389,7 @@ a:active {
 
 .status-item {
 
-    display: block;;
+    display: block;
     width: 1080px;
     float: left;
     text-align: center;
@@ -405,9 +405,11 @@ a:active {
     left: 200px;
     text-align: left;
     font-size: 50px;
+    height: 55px;
 }
 .status-1 {
     top:0;
+    height: 55px;
 
     position: absolute;
     width: 400px;
@@ -418,6 +420,7 @@ a:active {
 }
 .status-2 {
     top:0;
+    height: 55px;
 
     position: absolute;
     width: 400px;
@@ -428,7 +431,7 @@ a:active {
 }
 .status-0 {
     top:0;
-
+    height: 55px;
     position: absolute;
     width: 400px;
     right: 200px;
