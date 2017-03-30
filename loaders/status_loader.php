@@ -11,14 +11,16 @@ $result = mysql_query($query) or die('Query failed: ' . mysql_error());
 // Printing results in HTML
 while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
 	$b = true;
-	echo '<div class="status-item">';
+	echo '<div class="status-item"><p class="status-name">';
 	foreach ($line as $col_value) {
-		echo $col_value;
+		
 		if($b){
-			echo '&nbsp;&nbsp;&nbsp;';
+			echo $col_value;
+			echo '</p><p class="status-';
 			$b=false;
-		} else {
-			$b=true;
+		} else{
+			echo $col_value;
+			echo '">*</p>';
 		}
 
 	}

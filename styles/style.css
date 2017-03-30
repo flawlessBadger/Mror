@@ -358,9 +358,9 @@ a:active {
 }
 .percent {
     top:-0;
-  font-size: 90px;
-  text-transform: none;
- }
+    font-size: 90px;
+    text-transform: none;
+}
 .humicon {
     top:50px;
     font-size: 250px;
@@ -394,8 +394,44 @@ a:active {
     float: left;
     text-align: center;
     font-size: 50px;
+    height: 60px;
     margin: 10px 0 10px 0;
     color: white;
+}
+.status-name {
+
+    position: absolute;
+    width: 400px;
+    left: 200px;
+    text-align: left;
+    font-size: 50px;
+}
+.status-1 {
+
+    position: absolute;
+    width: 400px;
+    right: 200px;
+    text-align: center;
+    font-size: 50px;
+    color: green;
+}
+.status-2 {
+
+    position: absolute;
+    width: 400px;
+    right: 200px;
+    text-align: center;
+    font-size: 50px;
+    color: yellow;
+}
+.status-0 {
+
+    position: absolute;
+    width: 400px;
+    right: 200px;
+    text-align: center;
+    font-size: 50px;
+    color: red;
 }
 
 
