@@ -26,7 +26,17 @@ function reloadPage() {
     // alert("watafack");
     // reload(true);
     // window.location.href = 'http://localhost';
-    location.reload(true);
+    // location.reload(true);
+    $.ajax({
+        url: window.location.href,
+        headers: {
+            "Pragma": "no-cache",
+            "Expires": -1,
+            "Cache-Control": "no-cache"
+        }
+    }).done(function () {
+        window.location.reload(true);
+    });
     // window.location.replace('http://localhost');
 }
 
