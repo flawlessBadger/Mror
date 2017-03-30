@@ -362,7 +362,7 @@ a:active {
     text-transform: none;
 }
 .humicon {
-    top:0px;
+    top:90px;
     font-size: 250px;
 }
 
@@ -388,7 +388,7 @@ a:active {
 }
 
 .status-item {
-
+    position:relative;
     display: block;
     width: 1080px;
     float: left;
@@ -426,7 +426,7 @@ a:active {
     right: 200px;
     text-align: center;
     font-size: 50px;
-    color: yellow;
+    color: #f1c40f;
 }
 .status-0 {
     top:0;
@@ -436,7 +436,7 @@ a:active {
     right: 200px;
     text-align: center;
     font-size: 50px;
-    color: red;
+    color: #e74c3c;
 }
 
 
