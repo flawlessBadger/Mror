@@ -388,11 +388,11 @@ a:active {
 
 .status-item {
 
-    display: block;
-    background-color: white;
+    display: block;;
     width: 1080px;
     float: left;
     text-align: center;
+    font-size: 70px;
 }
 
 
