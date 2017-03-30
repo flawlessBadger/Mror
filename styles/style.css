@@ -368,6 +368,7 @@ a:active {
 
 
 #status {
+    margin-top: 20px;
     position: absolute;
     width: 1080px;
     height: 640px;
@@ -393,6 +394,7 @@ a:active {
     float: left;
     text-align: center;
     font-size: 70px;
+    color: white;
 }
 
 
