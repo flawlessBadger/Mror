@@ -357,11 +357,12 @@ a:active {
     color: #E0E0E0;
 }
 .percent {
-    top:-100px;
+    top:-0;
   font-size: 90px;
   text-transform: none;
  }
 .humicon {
+    top:50px;
     font-size: 250px;
 }
 
