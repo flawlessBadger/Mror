@@ -393,7 +393,8 @@ a:active {
     width: 1080px;
     float: left;
     text-align: center;
-    font-size: 70px;
+    font-size: 50px;
+    margin: 10px 0 10px 0;
     color: white;
 }
 
