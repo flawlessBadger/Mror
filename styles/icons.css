@@ -77,9 +77,9 @@
 .icon-S:before { content: "\00BF"; }
 .icon-W:before { content: "\0027"; }
 .icon-E:before { content: "\0087"; }
-.icon-NW:before { content: "\0038"; }
-.icon-NNW:before { content: "\0038"; }
-.icon-WNW:before { content: "\0038"; }
+.icon-NW:before { content: ";"; }
+.icon-NNW:before { content: ";"; }
+.icon-WNW:before { content: ";"; }
 .icon-NE:before { content: "\002E"; }
 .icon-NNE:before { content: "\002E"; }
 .icon-ENE:before { content: "\002E"; }
