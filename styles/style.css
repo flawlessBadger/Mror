@@ -367,9 +367,9 @@ a:active {
 }
 
 
-.status {
+#status {
     position: absolute;
-    width: 100%;
+    width: 1080px;
     height: 640px;
     top:-640px;
     left: 0;
