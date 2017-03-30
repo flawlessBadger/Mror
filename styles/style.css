@@ -373,9 +373,25 @@ a:active {
     height: 640px;
     top:-640px;
     left: 0;
-    background-color: white;
+    background-color: black;
     -webkit-transition: top 1s; 
     transition: top 1s;
+}
+
+.status-line{
+    display: block;
+    background-color: white;
+    width: 1080px;
+    float: left;
+    height: 2px;
+}
+
+.status-item {
+
+    display: block;
+    background-color: white;
+    width: 1080px;
+    float: left;
 }
 
 
