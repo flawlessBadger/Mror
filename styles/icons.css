@@ -78,6 +78,14 @@
 .icon-W:before { content: "\0027"; }
 .icon-E:before { content: "\0087"; }
 .icon-NW:before { content: "\0038"; }
+.icon-NNW:before { content: "\0038"; }
+.icon-WNW:before { content: "\0038"; }
 .icon-NE:before { content: "\002E"; }
+.icon-NNE:before { content: "\002E"; }
+.icon-ENE:before { content: "\002E"; }
 .icon-SW:before { content: "\0022"; } 
+.icon-WSW:before { content: "\0022"; } 
+.icon-SSW:before { content: "\0022"; } 
 .icon-SE:before { content: "\003F"; }
+.icon-ESE:before { content: "\003F"; }
+.icon-SSE:before { content: "\003F"; }
