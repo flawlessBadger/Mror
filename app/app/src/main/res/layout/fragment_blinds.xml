@@ -1,0 +1,147 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:weightSum="1"
+    tools:context="com.bild4.mror.BlindsFragment">
+
+    <TextView
+        android:id="@+id/Blinds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Blinds"
+        android:textColor="@color/colorAccent"
+        android:textSize="45sp" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="60" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="closed"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="open"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/man_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="blindsSend"
+        android:text="Set manually" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="138dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="ToggleButton"
+        android:textOff="auto"
+        android:textOn="auto" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="4dp">
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center_horizontal"
+        android:text="Outlet"
+        android:textColor="@color/colorAccent"
+        android:textSize="45sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/leftTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="00:00"
+            android:textColor="@color/white"
+            android:textSize="40dp" />
+
+        <TextView
+            android:id="@+id/rightTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="00:00"
+            android:textColor="@color/white"
+            android:textSize="40dp" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="SET" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="204dp">
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/button5"
+            android:layout_alignBottom="@+id/button5"
+            android:layout_marginStart="47dp"
+            android:layout_toEndOf="@+id/button5"
+            android:onClick="socketoff"
+            android:text="OFF" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="82dp"
+            android:onClick="socketon"
+            android:text="ON" />
+    </RelativeLayout>
+
+
+</LinearLayout>

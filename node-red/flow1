@@ -1,0 +1,2623 @@
+[
+    {
+        "id": "d4c1919b.30f8c8",
+        "type": "tab",
+        "label": "Flow 1"
+    },
+    {
+        "id": "c470d3ed.44999",
+        "type": "inject",
+        "z": "d4c1919b.30f8c8",
+        "name": "start every 3 sec",
+        "topic": "discover",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "x": 145,
+        "y": 45,
+        "wires": [
+            [
+                "896422ca.f1e43"
+            ]
+        ]
+    },
+    {
+        "id": "d091aeab.57238",
+        "type": "udp out",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "addr": "255.255.255.255",
+        "iface": "",
+        "port": "1984",
+        "ipv": "udp4",
+        "outport": "",
+        "base64": false,
+        "multicast": "broad",
+        "x": 609.4443969726562,
+        "y": 45.888893127441406,
+        "wires": []
+    },
+    {
+        "id": "896422ca.f1e43",
+        "type": "change",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "MROR_DISCOVER",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 349.25000762939453,
+        "y": 45.75,
+        "wires": [
+            [
+                "d091aeab.57238",
+                "55818241.b1da7c"
+            ]
+        ]
+    },
+    {
+        "id": "d68a2d92.127638",
+        "type": "websocket in",
+        "z": "d4c1919b.30f8c8",
+        "name": "websocket in",
+        "server": "a8bb7c51.683ce",
+        "client": "",
+        "x": 122.77777099609375,
+        "y": 170.79363822937012,
+        "wires": [
+            [
+                "df7dc6a8.af047"
+            ]
+        ]
+    },
+    {
+        "id": "df7dc6a8.af047",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "blow up payload",
+        "func": "var n = msg.payload.indexOf(\"$\");\nmsg.tag = msg.payload.substring(0,n).trim();\nmsg.message = msg.payload.substring(n+1,msg.payload.length).trim();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 340.2221984863281,
+        "y": 184.2222137451172,
+        "wires": [
+            [
+                "24d9dced.24f8fc",
+                "2fffbec4.bdfcba"
+            ]
+        ]
+    },
+    {
+        "id": "50d4191c.06eb78",
+        "type": "link out",
+        "z": "d4c1919b.30f8c8",
+        "name": "websocket out",
+        "links": [
+            "a2277436.65fa48",
+            "a755940e.97acd",
+            "5dd5d0a5.83c0f8",
+            "c0071049.273178",
+            "7a948ca7.477884",
+            "a6e07846.181e6",
+            "e454164a.55fa88",
+            "cac3f4ed.5a4518"
+        ],
+        "x": 1108.22216796875,
+        "y": 318.1111145019531,
+        "wires": []
+    },
+    {
+        "id": "24d9dced.24f8fc",
+        "type": "switch",
+        "z": "d4c1919b.30f8c8",
+        "name": "check for loopback",
+        "property": "tag",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "AUTH",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 535.2221984863281,
+        "y": 183.2222137451172,
+        "wires": [
+            [
+                "2ab6f279.b2367e"
+            ],
+            [
+                "3c55c65b.48c552"
+            ]
+        ]
+    },
+    {
+        "id": "4d0a79bf.089ce8",
+        "type": "link in",
+        "z": "d4c1919b.30f8c8",
+        "name": "websocket in",
+        "links": [
+            "146b7907.edab2f",
+            "4a46f6fb.8ef",
+            "6546a7a6.55283",
+            "37e36eb3.924a12",
+            "1a06e1e0.b20156",
+            "d9e21f56.9e2c9",
+            "14d6d6ae.7b95e9"
+        ],
+        "x": 110.77777290344238,
+        "y": 262.00001335144043,
+        "wires": [
+            [
+                "975885cf.72423"
+            ]
+        ]
+    },
+    {
+        "id": "975885cf.72423",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "join payload",
+        "func": "msg.payload = msg.tag+\"$\"+msg.message;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 234.77777671813965,
+        "y": 262.99999809265137,
+        "wires": [
+            [
+                "37807ae9.23d8be"
+            ]
+        ]
+    },
+    {
+        "id": "37807ae9.23d8be",
+        "type": "websocket out",
+        "z": "d4c1919b.30f8c8",
+        "name": "websocket out",
+        "server": "a8bb7c51.683ce",
+        "client": "",
+        "x": 421.3333377838135,
+        "y": 262.22222900390625,
+        "wires": []
+    },
+    {
+        "id": "2fffbec4.bdfcba",
+        "type": "debug",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 565.9999694824219,
+        "y": 134,
+        "wires": []
+    },
+    {
+        "id": "55818241.b1da7c",
+        "type": "debug",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "active": false,
+        "console": "false",
+        "complete": "false",
+        "x": 537,
+        "y": 85,
+        "wires": []
+    },
+    {
+        "id": "1b129d43.5e2a53",
+        "type": "catch",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "scope": null,
+        "x": 1094.5000534057617,
+        "y": 513.2857303619385,
+        "wires": [
+            [
+                "d46461e9.e67be8"
+            ]
+        ]
+    },
+    {
+        "id": "d46461e9.e67be8",
+        "type": "debug",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1267.5000534057617,
+        "y": 513.2857303619385,
+        "wires": []
+    },
+    {
+        "id": "b90d13f4.5e3bb8",
+        "type": "mysql",
+        "z": "d4c1919b.30f8c8",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 851.5,
+        "y": 258,
+        "wires": [
+            [
+                "b5da2f39.6fc828"
+            ]
+        ]
+    },
+    {
+        "id": "3c55c65b.48c552",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "func": "msg.topic =\"SELECT * FROM Sessions WHERE session=\\\"\"+msg._session.id+\"\\\" AND time > timestampadd(hour, -24, now())\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 720,
+        "y": 239,
+        "wires": [
+            [
+                "b90d13f4.5e3bb8"
+            ]
+        ]
+    },
+    {
+        "id": "2ab6f279.b2367e",
+        "type": "switch",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "property": "message",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "cisco",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 724.5,
+        "y": 178,
+        "wires": [
+            [
+                "50dcbd4c.f0dd9c"
+            ],
+            [
+                "bfcd2941.c04b8"
+            ]
+        ]
+    },
+    {
+        "id": "bfcd2941.c04b8",
+        "type": "change",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "message",
+                "pt": "msg",
+                "to": "WRONGPASS",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 894.5,
+        "y": 213,
+        "wires": [
+            [
+                "6546a7a6.55283"
+            ]
+        ]
+    },
+    {
+        "id": "50dcbd4c.f0dd9c",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "func": "msg.topic =\"INSERT INTO Sessions(Session) VALUES (\\\"\"+msg._session.id+\"\\\")\";\nmsg.message = \"SUCCESS\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 859,
+        "y": 160,
+        "wires": [
+            [
+                "db7d757a.813d48"
+            ]
+        ]
+    },
+    {
+        "id": "db7d757a.813d48",
+        "type": "mysql",
+        "z": "d4c1919b.30f8c8",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 987,
+        "y": 161,
+        "wires": [
+            [
+                "6546a7a6.55283"
+            ]
+        ]
+    },
+    {
+        "id": "b5da2f39.6fc828",
+        "type": "switch",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "null"
+            },
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 973.5,
+        "y": 264,
+        "wires": [
+            [
+                "3c44f116.47130e"
+            ],
+            [
+                "50d4191c.06eb78"
+            ]
+        ]
+    },
+    {
+        "id": "6546a7a6.55283",
+        "type": "link out",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "links": [
+            "4d0a79bf.089ce8"
+        ],
+        "x": 1260,
+        "y": 191,
+        "wires": []
+    },
+    {
+        "id": "3c44f116.47130e",
+        "type": "change",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "message",
+                "pt": "msg",
+                "to": "FAILED",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "tag",
+                "pt": "msg",
+                "to": "AUTH",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1132,
+        "y": 257,
+        "wires": [
+            [
+                "6546a7a6.55283"
+            ]
+        ]
+    },
+    {
+        "id": "a2277436.65fa48",
+        "type": "link in",
+        "z": "d4c1919b.30f8c8",
+        "name": "text IN",
+        "links": [
+            "2693aa5e.f3ff26",
+            "50d4191c.06eb78"
+        ],
+        "x": 136,
+        "y": 445,
+        "wires": [
+            [
+                "62ebc098.beba7"
+            ]
+        ]
+    },
+    {
+        "id": "62ebc098.beba7",
+        "type": "switch",
+        "z": "d4c1919b.30f8c8",
+        "name": "check tag",
+        "property": "tag",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "TEXT",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 240,
+        "y": 445,
+        "wires": [
+            [
+                "5c716e7d.3b8428"
+            ]
+        ]
+    },
+    {
+        "id": "5c716e7d.3b8428",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "func": "msg.topic =\"UPDATE Text SET t=\\\"\"+msg.message+\"\\\"\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 457,
+        "y": 446,
+        "wires": [
+            [
+                "5ab787c3.c8a8f"
+            ]
+        ]
+    },
+    {
+        "id": "5ab787c3.c8a8f",
+        "type": "mysql",
+        "z": "d4c1919b.30f8c8",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 621,
+        "y": 446,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "71daefd2.ae57f",
+        "type": "inject",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 171.5,
+        "y": 518,
+        "wires": [
+            [
+                "efe7d9a1.b1f338"
+            ]
+        ]
+    },
+    {
+        "id": "efe7d9a1.b1f338",
+        "type": "change",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "message",
+                "pt": "msg",
+                "to": "wat wat",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 348.5,
+        "y": 513,
+        "wires": [
+            [
+                "5c716e7d.3b8428"
+            ]
+        ]
+    },
+    {
+        "id": "355716a9.e8d05a",
+        "type": "serial in",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "serial": "781b058.7eb8efc",
+        "x": 115.13489532470703,
+        "y": 955.7618255615234,
+        "wires": [
+            [
+                "2ca384d3.5e369c",
+                "5ae4eea7.0bc678"
+            ]
+        ]
+    },
+    {
+        "id": "2ca384d3.5e369c",
+        "type": "debug",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 473.74205207824707,
+        "y": 967.3689556121826,
+        "wires": []
+    },
+    {
+        "id": "4dd0d4a3.0bc8ac",
+        "type": "serial out",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "serial": "781b058.7eb8efc",
+        "x": 435.27777099609375,
+        "y": 1066.333251953125,
+        "wires": []
+    },
+    {
+        "id": "f1c2d2b9.c967",
+        "type": "exec",
+        "z": "d4c1919b.30f8c8",
+        "command": "/usr/bin/sudo",
+        "addpay": false,
+        "append": " rfcomm release rfcomm0",
+        "useSpawn": "",
+        "timer": "",
+        "name": "disconnect bluetooth",
+        "x": 546.0555725097656,
+        "y": 1730.8055419921875,
+        "wires": [
+            [
+                "5bcb25d7.325584",
+                "426d5f19.9d533"
+            ],
+            [
+                "5bcb25d7.325584"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "79c3b8bc.e5f83",
+        "type": "exec",
+        "z": "d4c1919b.30f8c8",
+        "command": "/usr/bin/sudo",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "name": "connect",
+        "x": 739.8333129882812,
+        "y": 1550.47216796875,
+        "wires": [
+            [
+                "1d94c09.cfb8c3f"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "d496b194.fbdf3",
+        "type": "status",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "scope": [
+            "355716a9.e8d05a"
+        ],
+        "x": 91.6110610961914,
+        "y": 1405.5554971694946,
+        "wires": [
+            [
+                "78d27697.a9aff"
+            ]
+        ]
+    },
+    {
+        "id": "3992b2f0.1fc98e",
+        "type": "delay",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 1175.833251953125,
+        "y": 1494.3056640625,
+        "wires": [
+            [
+                "485c54b1.317f84"
+            ]
+        ]
+    },
+    {
+        "id": "a79b4925.6e6078",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "func": "\n\nmsg.message\nflow.set(\"module\",msg.payload[0]);\nmsg.module = msg.payload[0].name;\nmsg.payload= \"rfcomm bind rfcomm0 \"+ flow.get('module').mac;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 602.8333740234375,
+        "y": 1537.97216796875,
+        "wires": [
+            [
+                "79c3b8bc.e5f83",
+                "1d0760ea.050d7f"
+            ]
+        ]
+    },
+    {
+        "id": "ec714bb7.3c84",
+        "type": "switch",
+        "z": "d4c1919b.30f8c8",
+        "name": "isBlueConn C",
+        "property": "isBlueConn",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 1029.3334465026855,
+        "y": 1538.9723391830921,
+        "wires": [
+            [
+                "504258b1.b1db78"
+            ],
+            [
+                "48fc3e5c.3cd89"
+            ]
+        ]
+    },
+    {
+        "id": "78d27697.a9aff",
+        "type": "switch",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "property": "status.text",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "node-red:common.status.connected",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "node-red:common.status.not-connected",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 233.22220993041992,
+        "y": 1407.1110450923443,
+        "wires": [
+            [
+                "84d0c9e6.6ea568"
+            ],
+            [
+                "1745a027.412f88"
+            ]
+        ]
+    },
+    {
+        "id": "1745a027.412f88",
+        "type": "change",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "isBlueConn",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 398.7778091430664,
+        "y": 1437.1110668182373,
+        "wires": [
+            [
+                "75c44075.67b9f"
+            ]
+        ]
+    },
+    {
+        "id": "84d0c9e6.6ea568",
+        "type": "change",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "isBlueConn",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 408.44451904296875,
+        "y": 1392.2220458984375,
+        "wires": [
+            [
+                "75c44075.67b9f",
+                "4e3739d2.f68de"
+            ]
+        ]
+    },
+    {
+        "id": "504258b1.b1db78",
+        "type": "switch",
+        "z": "d4c1919b.30f8c8",
+        "name": "limit C",
+        "property": "limit",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lte",
+                "v": "60",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 1176.1110954284668,
+        "y": 1524.8610110580921,
+        "wires": [
+            [
+                "3992b2f0.1fc98e"
+            ],
+            [
+                "5846997b.e48a48",
+                "b8880d77.05e18"
+            ]
+        ]
+    },
+    {
+        "id": "485c54b1.317f84",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "limit++",
+        "func": "msg.limit++;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1100.7778396606445,
+        "y": 1425.7500243484974,
+        "wires": [
+            [
+                "ec714bb7.3c84"
+            ]
+        ]
+    },
+    {
+        "id": "1d94c09.cfb8c3f",
+        "type": "change",
+        "z": "d4c1919b.30f8c8",
+        "name": "limit S",
+        "rules": [
+            {
+                "t": "set",
+                "p": "limit",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 868.1666412353516,
+        "y": 1538.750020980835,
+        "wires": [
+            [
+                "ec714bb7.3c84"
+            ]
+        ]
+    },
+    {
+        "id": "a2c134f0.7f2c78",
+        "type": "mysql",
+        "z": "d4c1919b.30f8c8",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 414.5,
+        "y": 2356,
+        "wires": [
+            [
+                "25743a54.b8b0d6"
+            ]
+        ]
+    },
+    {
+        "id": "c611e12a.f0af",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "set querry",
+        "func": "msg.topic = \"SELECT link FROM feeds\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 286,
+        "y": 2354,
+        "wires": [
+            [
+                "a2c134f0.7f2c78"
+            ]
+        ]
+    },
+    {
+        "id": "d0bc7dcc.3574f",
+        "type": "inject",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 156,
+        "y": 2347,
+        "wires": [
+            [
+                "c611e12a.f0af"
+            ]
+        ]
+    },
+    {
+        "id": "25743a54.b8b0d6",
+        "type": "debug",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "active": false,
+        "console": "false",
+        "complete": "true",
+        "x": 698,
+        "y": 2351,
+        "wires": []
+    },
+    {
+        "id": "b8841923.fba71",
+        "type": "mysql",
+        "z": "d4c1919b.30f8c8",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 559,
+        "y": 1577.25,
+        "wires": [
+            [
+                "a79b4925.6e6078"
+            ]
+        ]
+    },
+    {
+        "id": "d7e533fe.daad1",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "set querry",
+        "func": "msg.topic = \"SELECT * FROM modules WHERE is_looped=1 ORDER BY last_comm ASC LIMIT 1\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 438.0833435058594,
+        "y": 1588.4998779296875,
+        "wires": [
+            [
+                "b8841923.fba71"
+            ]
+        ]
+    },
+    {
+        "id": "716d8a66.685ddc",
+        "type": "link in",
+        "z": "d4c1919b.30f8c8",
+        "name": "BL serial in",
+        "links": [
+            "a05eb2a0.fb1d8",
+            "bb24e3e8.08a8e8"
+        ],
+        "x": 203,
+        "y": 1091.75,
+        "wires": [
+            [
+                "4dd0d4a3.0bc8ac",
+                "978d2fad.ae3e78"
+            ]
+        ]
+    },
+    {
+        "id": "2693aa5e.f3ff26",
+        "type": "link out",
+        "z": "d4c1919b.30f8c8",
+        "name": "serial out",
+        "links": [
+            "112076f5.11a729",
+            "1d1e8c2d.ba8e2c",
+            "307d1bb9.f0335c",
+            "385ed60b.13ec4a",
+            "595ea4a2.980534",
+            "75e7a155.211178",
+            "a2277436.65fa48",
+            "a636c761.aa6648",
+            "bf939e0c.bd54e8",
+            "c1a5be8b.f7059",
+            "92cb89cd.5e1da8"
+        ],
+        "x": 560.9642715454102,
+        "y": 910.0356903076172,
+        "wires": []
+    },
+    {
+        "id": "1d1e8c2d.ba8e2c",
+        "type": "link in",
+        "z": "d4c1919b.30f8c8",
+        "name": "disconnect",
+        "links": [
+            "2693aa5e.f3ff26",
+            "4207c7f.e6299b8",
+            "8667c1a6.49aa28",
+            "b8880d77.05e18"
+        ],
+        "x": 177.8332748413086,
+        "y": 1863.5596361160278,
+        "wires": [
+            [
+                "3bfc968.bf56dea"
+            ]
+        ]
+    },
+    {
+        "id": "a8878898.9176b",
+        "type": "exec",
+        "z": "d4c1919b.30f8c8",
+        "command": "/usr/bin/sudo",
+        "addpay": false,
+        "append": " rfcomm release rfcomm0",
+        "useSpawn": "",
+        "timer": "",
+        "name": "disconnect bluetooth",
+        "x": 408.00000762939453,
+        "y": 2155.0000972747803,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c7f67c8c.52dfa8",
+        "type": "inject",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 199,
+        "y": 2155.5000972747803,
+        "wires": [
+            [
+                "a8878898.9176b"
+            ]
+        ]
+    },
+    {
+        "id": "c3a4c9b3.e6dd7",
+        "type": "delay",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "200",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 1113.5,
+        "y": 1715.75,
+        "wires": [
+            [
+                "469d4d63.0e77f4"
+            ]
+        ]
+    },
+    {
+        "id": "d231972c.508f98",
+        "type": "mysql",
+        "z": "d4c1919b.30f8c8",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 929,
+        "y": 1744.75,
+        "wires": [
+            [
+                "c3a4c9b3.e6dd7"
+            ]
+        ]
+    },
+    {
+        "id": "1f649360.5d127d",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "set querry",
+        "func": "msg.topic = \"UPDATE modules SET last_comm=now() WHERE mac=\\\"\" + flow.get('module').mac +\"\\\"\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 931.5,
+        "y": 1712.75,
+        "wires": [
+            [
+                "d231972c.508f98"
+            ]
+        ]
+    },
+    {
+        "id": "51183cee.5d559c",
+        "type": "debug",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 727.5,
+        "y": 1893.75,
+        "wires": []
+    },
+    {
+        "id": "b6f718a6.44044",
+        "type": "debug",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 550,
+        "y": 1139,
+        "wires": []
+    },
+    {
+        "id": "978d2fad.ae3e78",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "func": "msg.tzt = flow.module\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 383,
+        "y": 1130,
+        "wires": [
+            [
+                "b6f718a6.44044"
+            ]
+        ]
+    },
+    {
+        "id": "5bcb25d7.325584",
+        "type": "switch",
+        "z": "d4c1919b.30f8c8",
+        "name": "is payload empty",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 762.5,
+        "y": 1807.75,
+        "wires": [
+            [
+                "91b6140d.81fd5"
+            ]
+        ]
+    },
+    {
+        "id": "172db5b.4e8ae4a",
+        "type": "mysql",
+        "z": "d4c1919b.30f8c8",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 730,
+        "y": 1865.75,
+        "wires": [
+            [
+                "51183cee.5d559c"
+            ]
+        ]
+    },
+    {
+        "id": "91b6140d.81fd5",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "set querry",
+        "func": "msg.topic = \"INSERT INTO `errors` (error) VALUES (\\\"\"+msg.payload+\"\\\")\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 728.5,
+        "y": 1835.75,
+        "wires": [
+            [
+                "172db5b.4e8ae4a"
+            ]
+        ]
+    },
+    {
+        "id": "ca7776d4.ea92e8",
+        "type": "mysql",
+        "z": "d4c1919b.30f8c8",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 278,
+        "y": 1567.9999990463257,
+        "wires": [
+            [
+                "fe87eb4e.39b968"
+            ]
+        ]
+    },
+    {
+        "id": "469d4d63.0e77f4",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "set querry",
+        "func": "msg.topic = \"SELECT message_buffer.* FROM message_buffer INNER JOIN modules ON modules.ID=message_buffer.ID_sender ORDER BY priority ASC LIMIT 1\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 276.25000762939453,
+        "y": 1603.5833129882812,
+        "wires": [
+            [
+                "ca7776d4.ea92e8"
+            ]
+        ]
+    },
+    {
+        "id": "fe87eb4e.39b968",
+        "type": "switch",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "property": "payload[0]",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "null"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 279.625,
+        "y": 1538,
+        "wires": [
+            [
+                "26c361.7367d4a"
+            ],
+            [
+                "d7e533fe.daad1"
+            ]
+        ]
+    },
+    {
+        "id": "663660a0.4997d",
+        "type": "debug",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 1372.8334655761719,
+        "y": 1593.416808605194,
+        "wires": []
+    },
+    {
+        "id": "ef3024f2.0d16a8",
+        "type": "mysql",
+        "z": "d4c1919b.30f8c8",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 1375.3334655761719,
+        "y": 1565.416808605194,
+        "wires": [
+            [
+                "663660a0.4997d"
+            ]
+        ]
+    },
+    {
+        "id": "5846997b.e48a48",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "set querry",
+        "func": "msg.topic = \"INSERT INTO `errors` (error) VALUES ('\"+flow.get(\"module\").mac+\" timed out ')\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1373.8334655761719,
+        "y": 1535.416808605194,
+        "wires": [
+            [
+                "ef3024f2.0d16a8"
+            ]
+        ]
+    },
+    {
+        "id": "75e7a155.211178",
+        "type": "link in",
+        "z": "d4c1919b.30f8c8",
+        "name": "B loopback in",
+        "links": [
+            "2693aa5e.f3ff26",
+            "e229d2fb.a3e55"
+        ],
+        "x": 20,
+        "y": 1189.25,
+        "wires": [
+            [
+                "4fac534d.d7e96c"
+            ]
+        ]
+    },
+    {
+        "id": "5ae4eea7.0bc678",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "blow up payload",
+        "func": "var n = msg.payload.indexOf(\"$\");\nmsg.tag = msg.payload.substring(0,n).trim();\nmsg.message = msg.payload.substring(n+1,msg.payload.length).trim();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 364.46427154541016,
+        "y": 910.2856903076172,
+        "wires": [
+            [
+                "2693aa5e.f3ff26"
+            ]
+        ]
+    },
+    {
+        "id": "49815a1d.e3e224",
+        "type": "mysql",
+        "z": "d4c1919b.30f8c8",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 247,
+        "y": 1261,
+        "wires": [
+            [
+                "b2fa6ec.0dfab9"
+            ]
+        ]
+    },
+    {
+        "id": "6f3442ee.5ef9f4",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "set querry",
+        "func": "msg.topic = \"SELECT message_buffer.ID, message FROM message_buffer INNER JOIN modules ON modules.ID=message_buffer.ID_sender WHERE modules.mac='\"+flow.get(\"module\").mac+\"' ORDER BY priority ASC LIMIT 1;\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 244.5,
+        "y": 1215,
+        "wires": [
+            [
+                "49815a1d.e3e224"
+            ]
+        ]
+    },
+    {
+        "id": "edbd58df.60a5a",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "i++",
+        "func": "\nmsg.i++;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 549.5,
+        "y": 1240,
+        "wires": [
+            [
+                "a52214d6.8a5a1"
+            ]
+        ]
+    },
+    {
+        "id": "3a15b043.e9a6f8",
+        "type": "switch",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "property": "i",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "payload.length",
+                "vt": "msg"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 545.5,
+        "y": 1332,
+        "wires": [
+            [
+                "edbd58df.60a5a",
+                "8cd4b065.b82d",
+                "867e23b9.6a4bc8"
+            ],
+            [
+                "bc6bafac.1173f"
+            ]
+        ]
+    },
+    {
+        "id": "b2fa6ec.0dfab9",
+        "type": "change",
+        "z": "d4c1919b.30f8c8",
+        "name": "set i",
+        "rules": [
+            {
+                "t": "set",
+                "p": "i",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 385.5,
+        "y": 1317,
+        "wires": [
+            [
+                "3a15b043.e9a6f8"
+            ]
+        ]
+    },
+    {
+        "id": "867e23b9.6a4bc8",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "message set",
+        "func": "msg.payload = msg.payload[msg.i].message;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 750.5,
+        "y": 1283,
+        "wires": [
+            [
+                "a05eb2a0.fb1d8"
+            ]
+        ]
+    },
+    {
+        "id": "e298d86e.1a86c8",
+        "type": "mysql",
+        "z": "d4c1919b.30f8c8",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 872,
+        "y": 1244,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8cd4b065.b82d",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "set querry",
+        "func": "msg.topic = \"DELETE FROM message_buffer WHERE ID=\"+msg.payload[msg.i].ID;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 741.5,
+        "y": 1244,
+        "wires": [
+            [
+                "e298d86e.1a86c8"
+            ]
+        ]
+    },
+    {
+        "id": "bc6bafac.1173f",
+        "type": "change",
+        "z": "d4c1919b.30f8c8",
+        "name": "payload S",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "news",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 742.5,
+        "y": 1323,
+        "wires": [
+            [
+                "a05eb2a0.fb1d8"
+            ]
+        ]
+    },
+    {
+        "id": "280662c7.f515be",
+        "type": "delay",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 1352.3334732055664,
+        "y": 1728.333475112915,
+        "wires": [
+            [
+                "b61a9bd4.8c2fb8"
+            ]
+        ]
+    },
+    {
+        "id": "d8582dda.4158b8",
+        "type": "switch",
+        "z": "d4c1919b.30f8c8",
+        "name": "isBlueConn C",
+        "property": "isBlueConn",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 1380.8337173461914,
+        "y": 1667.0001010894775,
+        "wires": [
+            [
+                "dbc7a4da.30e6c8"
+            ]
+        ]
+    },
+    {
+        "id": "dbc7a4da.30e6c8",
+        "type": "switch",
+        "z": "d4c1919b.30f8c8",
+        "name": "limit C",
+        "property": "limit",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lte",
+                "v": "40",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 1375.6113052368164,
+        "y": 1636.8887729644775,
+        "wires": [
+            [
+                "280662c7.f515be"
+            ],
+            [
+                "c31c6d32.0e6db",
+                "704ebf0b.51ad5"
+            ]
+        ]
+    },
+    {
+        "id": "b61a9bd4.8c2fb8",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "limit++",
+        "func": "msg.limit++;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1380.2780532836914,
+        "y": 1697.777811050415,
+        "wires": [
+            [
+                "d8582dda.4158b8"
+            ]
+        ]
+    },
+    {
+        "id": "48fc3e5c.3cd89",
+        "type": "change",
+        "z": "d4c1919b.30f8c8",
+        "name": "limit S",
+        "rules": [
+            {
+                "t": "set",
+                "p": "limit",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1204.333381652832,
+        "y": 1573.0000243484974,
+        "wires": [
+            [
+                "dbc7a4da.30e6c8"
+            ]
+        ]
+    },
+    {
+        "id": "488c124f.7d21e4",
+        "type": "debug",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 1577.33349609375,
+        "y": 1766.33349609375,
+        "wires": []
+    },
+    {
+        "id": "f1c2677c.5b6ad",
+        "type": "mysql",
+        "z": "d4c1919b.30f8c8",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 1576.83349609375,
+        "y": 1735.33349609375,
+        "wires": [
+            [
+                "488c124f.7d21e4"
+            ]
+        ]
+    },
+    {
+        "id": "c31c6d32.0e6db",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "set querry",
+        "func": "msg.topic = \"INSERT INTO `errors` (error) VALUES ('\"+flow.get(\"module\").mac+\" timed out ')\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1575.33349609375,
+        "y": 1704.33349609375,
+        "wires": [
+            [
+                "f1c2677c.5b6ad"
+            ]
+        ]
+    },
+    {
+        "id": "b8880d77.05e18",
+        "type": "link out",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "links": [
+            "1d1e8c2d.ba8e2c"
+        ],
+        "x": 1335.8334312438965,
+        "y": 1503.3333921432495,
+        "wires": []
+    },
+    {
+        "id": "1d0760ea.050d7f",
+        "type": "debug",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 828,
+        "y": 1612,
+        "wires": []
+    },
+    {
+        "id": "4fac534d.d7e96c",
+        "type": "switch",
+        "z": "d4c1919b.30f8c8",
+        "name": "check tag",
+        "property": "tag",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "loopback",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 105,
+        "y": 1214,
+        "wires": [
+            [
+                "6f3442ee.5ef9f4"
+            ]
+        ]
+    },
+    {
+        "id": "3bfc968.bf56dea",
+        "type": "switch",
+        "z": "d4c1919b.30f8c8",
+        "name": "check tag",
+        "property": "tag",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "close",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 284.6666030883789,
+        "y": 1858.4762525558472,
+        "wires": [
+            [
+                "f1c2d2b9.c967",
+                "4521d189.3bf098"
+            ]
+        ]
+    },
+    {
+        "id": "c91d9425.6aa56",
+        "type": "inject",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "900",
+        "crontab": "",
+        "once": false,
+        "x": 155,
+        "y": 2004,
+        "wires": [
+            [
+                "e5770bdc.a93f1"
+            ]
+        ]
+    },
+    {
+        "id": "f4c53558.7dd1a",
+        "type": "serial out",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "serial": "d950006a.176368",
+        "x": 578.5,
+        "y": 1996,
+        "wires": []
+    },
+    {
+        "id": "e5770bdc.a93f1",
+        "type": "change",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "news",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 336.5,
+        "y": 2005,
+        "wires": [
+            [
+                "f4c53558.7dd1a",
+                "667667f.72c6498"
+            ]
+        ]
+    },
+    {
+        "id": "667667f.72c6498",
+        "type": "debug",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 600,
+        "y": 2064,
+        "wires": []
+    },
+    {
+        "id": "f266e8fc.05618",
+        "type": "serial in",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "serial": "d950006a.176368",
+        "x": 115.71427154541016,
+        "y": 907.2856903076172,
+        "wires": [
+            [
+                "5ae4eea7.0bc678",
+                "2ca384d3.5e369c"
+            ]
+        ]
+    },
+    {
+        "id": "75c44075.67b9f",
+        "type": "debug",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 626,
+        "y": 1448,
+        "wires": []
+    },
+    {
+        "id": "a05eb2a0.fb1d8",
+        "type": "link out",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "links": [
+            "716d8a66.685ddc"
+        ],
+        "x": 1016.5,
+        "y": 1299,
+        "wires": []
+    },
+    {
+        "id": "8667c1a6.49aa28",
+        "type": "link out",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "links": [
+            "1d1e8c2d.ba8e2c"
+        ],
+        "x": 1709,
+        "y": 1637,
+        "wires": []
+    },
+    {
+        "id": "bb24e3e8.08a8e8",
+        "type": "link out",
+        "z": "d4c1919b.30f8c8",
+        "name": "connection succes out",
+        "links": [
+            "716d8a66.685ddc"
+        ],
+        "x": 977,
+        "y": 1374,
+        "wires": []
+    },
+    {
+        "id": "66dedc21.7ff704",
+        "type": "change",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "loopback",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 845.541748046875,
+        "y": 1375.75,
+        "wires": [
+            [
+                "bb24e3e8.08a8e8"
+            ]
+        ]
+    },
+    {
+        "id": "4e3739d2.f68de",
+        "type": "delay",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "200",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 659.5,
+        "y": 1377,
+        "wires": [
+            [
+                "66dedc21.7ff704"
+            ]
+        ]
+    },
+    {
+        "id": "a52214d6.8a5a1",
+        "type": "delay",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 531.5,
+        "y": 1273,
+        "wires": [
+            [
+                "3a15b043.e9a6f8"
+            ]
+        ]
+    },
+    {
+        "id": "704ebf0b.51ad5",
+        "type": "change",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "tag",
+                "pt": "msg",
+                "to": "close",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1595.5,
+        "y": 1635,
+        "wires": [
+            [
+                "8667c1a6.49aa28"
+            ]
+        ]
+    },
+    {
+        "id": "26c361.7367d4a",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "set querry",
+        "func": "msg.topic = \"SELECT * FROM modules WHERE ID=\"+msg.payload[0].ID_sender;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 442.75,
+        "y": 1532.25,
+        "wires": [
+            [
+                "b8841923.fba71"
+            ]
+        ]
+    },
+    {
+        "id": "15c37068.47edc",
+        "type": "exec",
+        "z": "d4c1919b.30f8c8",
+        "command": "(cd /var/www/html; sudo git pull)",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "59",
+        "name": "",
+        "x": 530,
+        "y": 658,
+        "wires": [
+            [
+                "7e4380ec.b231b"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "fb38bdc2.0eed68",
+        "type": "inject",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 140.85714721679688,
+        "y": 655.9285507202148,
+        "wires": [
+            [
+                "15c37068.47edc"
+            ]
+        ]
+    },
+    {
+        "id": "3aa126dd.2ec86a",
+        "type": "debug",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 936,
+        "y": 606.5,
+        "wires": []
+    },
+    {
+        "id": "7e4380ec.b231b",
+        "type": "switch",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "Already up-to-date.",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 2,
+        "x": 750.5,
+        "y": 645,
+        "wires": [
+            [
+                "103efcb2.289c83"
+            ],
+            [
+                "3aa126dd.2ec86a",
+                "2efadaca.e07b06"
+            ]
+        ]
+    },
+    {
+        "id": "46fbce4.764f5b",
+        "type": "inject",
+        "z": "d4c1919b.30f8c8",
+        "name": "script on",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 112,
+        "y": 1606,
+        "wires": [
+            [
+                "469d4d63.0e77f4",
+                "4eb94fef.b919f"
+            ]
+        ]
+    },
+    {
+        "id": "426d5f19.9d533",
+        "type": "switch",
+        "z": "d4c1919b.30f8c8",
+        "name": "script switch",
+        "property": "isScript",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 754.5,
+        "y": 1718,
+        "wires": [
+            [
+                "1f649360.5d127d"
+            ]
+        ]
+    },
+    {
+        "id": "4eb94fef.b919f",
+        "type": "change",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "isScript",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 288,
+        "y": 1662,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d4a02ba8.7f1de",
+        "type": "change",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "isScript",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 295,
+        "y": 1725,
+        "wires": [
+            [
+                "f1c2d2b9.c967"
+            ]
+        ]
+    },
+    {
+        "id": "87f69e7f.47701",
+        "type": "inject",
+        "z": "d4c1919b.30f8c8",
+        "name": "script off",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 106.5,
+        "y": 1684,
+        "wires": [
+            [
+                "d4a02ba8.7f1de"
+            ]
+        ]
+    },
+    {
+        "id": "8187bdd9.3310d",
+        "type": "inject",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 118.5,
+        "y": 1040,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "31a7bc1b.e7cdac",
+        "type": "change",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 218.5,
+        "y": 1147,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2efadaca.e07b06",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "set querry",
+        "func": "msg.topic = \"UPDATE  move SET move=3\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 901.7499389648438,
+        "y": 653.4642944335938,
+        "wires": [
+            [
+                "6b53e7bf.9622f8",
+                "103efcb2.289c83"
+            ]
+        ]
+    },
+    {
+        "id": "6b53e7bf.9622f8",
+        "type": "mysql",
+        "z": "d4c1919b.30f8c8",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 906.857048034668,
+        "y": 683.8571224212646,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "43aef2c8.8cf654",
+        "type": "inject",
+        "z": "d4c1919b.30f8c8",
+        "name": "move on",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 108,
+        "y": 1778,
+        "wires": [
+            [
+                "f1c2d2b9.c967"
+            ]
+        ]
+    },
+    {
+        "id": "103efcb2.289c83",
+        "type": "delay",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 927.964111328125,
+        "y": 490.6070556640625,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4521d189.3bf098",
+        "type": "switch",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "property": "module.name",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "Alarm",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 487.8571662902832,
+        "y": 1822.857250213623,
+        "wires": [
+            [
+                "3ec1a38f.186d94"
+            ]
+        ]
+    },
+    {
+        "id": "3ec1a38f.186d94",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "set querry",
+        "func": "msg.topic = \"INSERT INTO message_buffer (ID_sender,message,priority) VALUES (2,'check',5)\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 485.71429443359375,
+        "y": 1851.4286613464355,
+        "wires": [
+            [
+                "f7c2ee6.621559"
+            ]
+        ]
+    },
+    {
+        "id": "f7c2ee6.621559",
+        "type": "mysql",
+        "z": "d4c1919b.30f8c8",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 489.9999542236328,
+        "y": 1884.4285917282104,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ea772683.fa9908",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "set querry",
+        "func": "msg.topic = \"UPDATE  move SET move=3\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 391.25,
+        "y": 761.25,
+        "wires": [
+            [
+                "169ff6a2.d98679"
+            ]
+        ]
+    },
+    {
+        "id": "169ff6a2.d98679",
+        "type": "mysql",
+        "z": "d4c1919b.30f8c8",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 395.35709381103516,
+        "y": 787.6428184509277,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5b1bbd7c.9ff054",
+        "type": "inject",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 233.75,
+        "y": 775.0000123977661,
+        "wires": [
+            [
+                "ea772683.fa9908"
+            ]
+        ]
+    },
+    {
+        "id": "92cb89cd.5e1da8",
+        "type": "link in",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "links": [
+            "2693aa5e.f3ff26"
+        ],
+        "x": 88.75,
+        "y": 2465,
+        "wires": [
+            [
+                "eaaba7a9.5d4d98"
+            ]
+        ]
+    },
+    {
+        "id": "eaaba7a9.5d4d98",
+        "type": "switch",
+        "z": "d4c1919b.30f8c8",
+        "name": "check tag",
+        "property": "message",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "battery",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 165.89283084869385,
+        "y": 2509.0003147125244,
+        "wires": [
+            [
+                "5b68bd98.444ce4"
+            ]
+        ]
+    },
+    {
+        "id": "8339ad0c.dde47",
+        "type": "mysql",
+        "z": "d4c1919b.30f8c8",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 584.1786279678345,
+        "y": 2486.142858505249,
+        "wires": [
+            [
+                "a5f74136.36ff18"
+            ]
+        ]
+    },
+    {
+        "id": "d8f1db30.c7b988",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "set querry",
+        "func": "\nmsg.topic = \"SELECT status FROM modules WHERE ID=\"+flow.get('module').ID;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 574.2500238418579,
+        "y": 2458.4287815093994,
+        "wires": [
+            [
+                "8339ad0c.dde47"
+            ]
+        ]
+    },
+    {
+        "id": "a5f74136.36ff18",
+        "type": "switch",
+        "z": "d4c1919b.30f8c8",
+        "name": "",
+        "property": "payload[0].status",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "message",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 733.4642724990845,
+        "y": 2463.2857151031494,
+        "wires": [
+            [
+                "1bc80753.93c231"
+            ]
+        ]
+    },
+    {
+        "id": "34893c5b.5b7c34",
+        "type": "mysql",
+        "z": "d4c1919b.30f8c8",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 874.1786890029907,
+        "y": 2476.570864677429,
+        "wires": [
+            [
+                "13d72cc3.2ee243"
+            ]
+        ]
+    },
+    {
+        "id": "1bc80753.93c231",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "set querry",
+        "func": "\nmsg.topic = \"UPDATE modules SET status=\"+msg.message+\" WHERE ID=\"+flow.get('module').ID;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 867.1071825027466,
+        "y": 2451.714105606079,
+        "wires": [
+            [
+                "34893c5b.5b7c34"
+            ]
+        ]
+    },
+    {
+        "id": "13d72cc3.2ee243",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "set querry",
+        "func": "msg.topic = \"UPDATE move SET move=3\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1034.8929529190063,
+        "y": 2450.857172012329,
+        "wires": [
+            [
+                "4f407601.6e1bd8"
+            ]
+        ]
+    },
+    {
+        "id": "4f407601.6e1bd8",
+        "type": "mysql",
+        "z": "d4c1919b.30f8c8",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 1037.7500467300415,
+        "y": 2480.999984741211,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5b68bd98.444ce4",
+        "type": "function",
+        "z": "d4c1919b.30f8c8",
+        "name": "blow up payload",
+        "func": "var n = msg.message.indexOf(\"$\");\nmsg.tag = msg.message.substring(0,n);\nmsg.message = msg.message.substring(n+1,msg.payload.length);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 336.892861366272,
+        "y": 2461.9998264312744,
+        "wires": [
+            [
+                "d8f1db30.c7b988"
+            ]
+        ]
+    },
+    {
+        "id": "a8bb7c51.683ce",
+        "type": "websocket-listener",
+        "z": "d4c1919b.30f8c8",
+        "path": "/ws/mror",
+        "wholemsg": "false"
+    },
+    {
+        "id": "393e4a97.a65eb6",
+        "type": "MySQLdatabase",
+        "z": "",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "mror",
+        "tz": ""
+    },
+    {
+        "id": "781b058.7eb8efc",
+        "type": "serial-port",
+        "z": "",
+        "serialport": "/dev/rfcomm0",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": false
+    },
+    {
+        "id": "d950006a.176368",
+        "type": "serial-port",
+        "z": "",
+        "serialport": "/dev/ttyACM0",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": false
+    }
+]

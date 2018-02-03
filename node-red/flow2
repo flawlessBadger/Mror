@@ -1,0 +1,2108 @@
+[
+    {
+        "id": "ad8eea7d.e6bd98",
+        "type": "tab",
+        "label": "Flow 2"
+    },
+    {
+        "id": "849cd3eb.c4fe1",
+        "type": "twilio out",
+        "z": "ad8eea7d.e6bd98",
+        "twilio": "fc4e797a.b2557",
+        "twilioType": "call",
+        "url": "https://handler.twilio.com/twiml/EHbad6e8c2a112c2f496c2b7e2cd04449c",
+        "number": "+421917087357",
+        "name": "door alarm",
+        "x": 596,
+        "y": 708,
+        "wires": []
+    },
+    {
+        "id": "112076f5.11a729",
+        "type": "link in",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "links": [
+            "2693aa5e.f3ff26"
+        ],
+        "x": 146.5,
+        "y": 713,
+        "wires": [
+            [
+                "8e43b781.862a"
+            ]
+        ]
+    },
+    {
+        "id": "595ea4a2.980534",
+        "type": "link in",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "links": [
+            "2693aa5e.f3ff26"
+        ],
+        "x": 203,
+        "y": 386,
+        "wires": [
+            [
+                "15f8ba6.43c5dc6"
+            ]
+        ]
+    },
+    {
+        "id": "2dd3d875.f6c848",
+        "type": "switch",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "property": "isMirrorOn",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 451.5,
+        "y": 385,
+        "wires": [
+            [
+                "fb92d06f.b55ce8",
+                "1280ac05.040864"
+            ],
+            [
+                "d2d23812.e2068"
+            ]
+        ]
+    },
+    {
+        "id": "6381a411.493554",
+        "type": "change",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "timer",
+                "pt": "flow",
+                "to": "60",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "isMirrorOn",
+                "pt": "global",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 787.7500152587891,
+        "y": 221.00000286102295,
+        "wires": [
+            [
+                "60173678.92393"
+            ]
+        ]
+    },
+    {
+        "id": "15f8ba6.43c5dc6",
+        "type": "switch",
+        "z": "ad8eea7d.e6bd98",
+        "name": "check tag",
+        "property": "tag",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "mirror",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 308.5,
+        "y": 386,
+        "wires": [
+            [
+                "2dd3d875.f6c848"
+            ]
+        ]
+    },
+    {
+        "id": "d2d23812.e2068",
+        "type": "change",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "timer",
+                "pt": "flow",
+                "to": "60",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 622,
+        "y": 477,
+        "wires": [
+            [
+                "aa9c6531.13bd6"
+            ]
+        ]
+    },
+    {
+        "id": "60173678.92393",
+        "type": "switch",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "property": "timer",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 948.071533203125,
+        "y": 269.2857360839844,
+        "wires": [
+            [
+                "448e636.4d9ce9c"
+            ],
+            [
+                "adf3397c.d565b8"
+            ]
+        ]
+    },
+    {
+        "id": "a8dfaa9c.b382b",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "timer--",
+        "func": "var t = flow.get(\"timer\");\nt--;\nflow.set(\"timer\",t);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 996.0714912414551,
+        "y": 167.14287185668945,
+        "wires": [
+            [
+                "60173678.92393"
+            ]
+        ]
+    },
+    {
+        "id": "448e636.4d9ce9c",
+        "type": "delay",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "6",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 1089.5715579986572,
+        "y": 257.2856888771057,
+        "wires": [
+            [
+                "a8dfaa9c.b382b"
+            ]
+        ]
+    },
+    {
+        "id": "aa9c6531.13bd6",
+        "type": "switch",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "property": "message",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "down",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "up",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 805.7143325805664,
+        "y": 438.5714168548584,
+        "wires": [
+            [
+                "b5ebbcfe.5c56f",
+                "4da95f5b.d9aa08"
+            ],
+            [
+                "43e61eee.452b38",
+                "4da95f5b.d9aa08"
+            ]
+        ]
+    },
+    {
+        "id": "3d0d1650.2bfdfa",
+        "type": "exec",
+        "z": "ad8eea7d.e6bd98",
+        "command": "/opt/vc/bin/tvservice ",
+        "addpay": false,
+        "append": "-o",
+        "useSpawn": "",
+        "timer": "",
+        "name": "turn off screen",
+        "x": 1342.4287300109863,
+        "y": 256.0357093811035,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "fb92d06f.b55ce8",
+        "type": "exec",
+        "z": "ad8eea7d.e6bd98",
+        "command": "/opt/vc/bin/tvservice ",
+        "addpay": false,
+        "append": "-p",
+        "useSpawn": "",
+        "timer": "",
+        "name": "turn on screen",
+        "x": 665.857177734375,
+        "y": 341,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "9683f168.2c2268",
+        "type": "mysql",
+        "z": "ad8eea7d.e6bd98",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 1130,
+        "y": 435.7142734527588,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b5ebbcfe.5c56f",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "set querry",
+        "func": "msg.topic = \"UPDATE  move SET move=2\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 974.357177734375,
+        "y": 408,
+        "wires": [
+            [
+                "9683f168.2c2268",
+                "674c2f40.7100d"
+            ]
+        ]
+    },
+    {
+        "id": "43e61eee.452b38",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "set querry",
+        "func": "msg.topic = \"UPDATE  move SET move=0\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 965.7142944335938,
+        "y": 460,
+        "wires": [
+            [
+                "9683f168.2c2268",
+                "674c2f40.7100d"
+            ]
+        ]
+    },
+    {
+        "id": "9297c38f.52cff",
+        "type": "inject",
+        "z": "ad8eea7d.e6bd98",
+        "name": "do at start",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 431.28570556640625,
+        "y": 283.857177734375,
+        "wires": [
+            [
+                "fb92d06f.b55ce8",
+                "1280ac05.040864"
+            ]
+        ]
+    },
+    {
+        "id": "adf3397c.d565b8",
+        "type": "change",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "isMirrorOn",
+                "pt": "global",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1128.2857666015625,
+        "y": 305.71429443359375,
+        "wires": [
+            [
+                "3d0d1650.2bfdfa",
+                "3eb2fd6c.fceb0a"
+            ]
+        ]
+    },
+    {
+        "id": "8e43b781.862a",
+        "type": "switch",
+        "z": "ad8eea7d.e6bd98",
+        "name": "check tag",
+        "property": "tag",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "door",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 246,
+        "y": 714,
+        "wires": [
+            [
+                "8860dbd.87c0b28",
+                "2e9a0cb0.4e1f04"
+            ]
+        ]
+    },
+    {
+        "id": "8860dbd.87c0b28",
+        "type": "switch",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "property": "message",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "alarm",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 404.5,
+        "y": 715,
+        "wires": [
+            [
+                "849cd3eb.c4fe1",
+                "2e9a0cb0.4e1f04"
+            ]
+        ]
+    },
+    {
+        "id": "459e5cc2.6ec56c",
+        "type": "twilio out",
+        "z": "ad8eea7d.e6bd98",
+        "twilio": "fc4e797a.b2557",
+        "twilioType": "call",
+        "url": "https://handler.twilio.com/twiml/EH20b1f4b50e0ecc32b63230a2c2774a5a",
+        "number": "+421917087357",
+        "name": "smoke alarm",
+        "x": 600.5,
+        "y": 777,
+        "wires": []
+    },
+    {
+        "id": "c1a5be8b.f7059",
+        "type": "link in",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "links": [
+            "2693aa5e.f3ff26"
+        ],
+        "x": 153,
+        "y": 782,
+        "wires": [
+            [
+                "d4c01c39.c7acb"
+            ]
+        ]
+    },
+    {
+        "id": "d4c01c39.c7acb",
+        "type": "switch",
+        "z": "ad8eea7d.e6bd98",
+        "name": "check tag",
+        "property": "tag",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "smoke",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 251.5,
+        "y": 779,
+        "wires": [
+            [
+                "58696e03.72c1c8"
+            ]
+        ]
+    },
+    {
+        "id": "58696e03.72c1c8",
+        "type": "switch",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "property": "message",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "fire",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 410,
+        "y": 780,
+        "wires": [
+            [
+                "459e5cc2.6ec56c"
+            ]
+        ]
+    },
+    {
+        "id": "2e9a0cb0.4e1f04",
+        "type": "debug",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 705.5,
+        "y": 631,
+        "wires": []
+    },
+    {
+        "id": "f39085b7.784c58",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "join links",
+        "func": "var s = \"\";\nfor(var i=0;i<msg.payload.length;i++){\n    s+=msg.payload[i].link;\n    s+=\";\";\n}\nmsg.message = s;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 588,
+        "y": 1162,
+        "wires": [
+            [
+                "37e36eb3.924a12"
+            ]
+        ]
+    },
+    {
+        "id": "5c941813.0cba6",
+        "type": "mysql",
+        "z": "ad8eea7d.e6bd98",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 448.5,
+        "y": 1154,
+        "wires": [
+            [
+                "f39085b7.784c58"
+            ]
+        ]
+    },
+    {
+        "id": "c49c532b.15096",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "set querry",
+        "func": "msg.topic = \"SELECT link FROM feeds\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 318,
+        "y": 1149,
+        "wires": [
+            [
+                "5c941813.0cba6"
+            ]
+        ]
+    },
+    {
+        "id": "5dd5d0a5.83c0f8",
+        "type": "link in",
+        "z": "ad8eea7d.e6bd98",
+        "name": "rss get",
+        "links": [
+            "50d4191c.06eb78",
+            "227b9885.ef0008",
+            "ad4d25bf.332fc8"
+        ],
+        "x": 62.5,
+        "y": 1145,
+        "wires": [
+            [
+                "1926eb11.bf2375"
+            ]
+        ]
+    },
+    {
+        "id": "1926eb11.bf2375",
+        "type": "switch",
+        "z": "ad8eea7d.e6bd98",
+        "name": "check tag",
+        "property": "tag",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "RSS_GET",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 173.5,
+        "y": 1147,
+        "wires": [
+            [
+                "c49c532b.15096"
+            ]
+        ]
+    },
+    {
+        "id": "37e36eb3.924a12",
+        "type": "link out",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "links": [
+            "4d0a79bf.089ce8"
+        ],
+        "x": 713.5,
+        "y": 1166,
+        "wires": []
+    },
+    {
+        "id": "b067fd1c.040b08",
+        "type": "mysql",
+        "z": "ad8eea7d.e6bd98",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 442,
+        "y": 1218,
+        "wires": [
+            [
+                "433ab3e.786204c"
+            ]
+        ]
+    },
+    {
+        "id": "ee9a6878.72b0c",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "set querry",
+        "func": "msg.topic = \"DELETE FROM feeds WHERE link=\\\"\"+msg.message+\"\\\"\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 311.5,
+        "y": 1213,
+        "wires": [
+            [
+                "b067fd1c.040b08"
+            ]
+        ]
+    },
+    {
+        "id": "cd7b1b22.d5178",
+        "type": "switch",
+        "z": "ad8eea7d.e6bd98",
+        "name": "check tag",
+        "property": "tag",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "RSS_REMOVE",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 167,
+        "y": 1211,
+        "wires": [
+            [
+                "ee9a6878.72b0c"
+            ]
+        ]
+    },
+    {
+        "id": "c0071049.273178",
+        "type": "link in",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "links": [
+            "50d4191c.06eb78"
+        ],
+        "x": 65,
+        "y": 1214,
+        "wires": [
+            [
+                "cd7b1b22.d5178"
+            ]
+        ]
+    },
+    {
+        "id": "2224acd0.1da9ac",
+        "type": "inject",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 413.5,
+        "y": 610,
+        "wires": [
+            [
+                "849cd3eb.c4fe1"
+            ]
+        ]
+    },
+    {
+        "id": "c28da6a4.aebbc",
+        "type": "mysql",
+        "z": "ad8eea7d.e6bd98",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 459.5,
+        "y": 1295,
+        "wires": [
+            [
+                "8b176867.1ea938"
+            ]
+        ]
+    },
+    {
+        "id": "80291131.bdfb78",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "set querry",
+        "func": "msg.topic = \"INSERT INTO feeds (link) VALUES (\\\"\"+msg.message+\"\\\")\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 329,
+        "y": 1290,
+        "wires": [
+            [
+                "c28da6a4.aebbc"
+            ]
+        ]
+    },
+    {
+        "id": "566d4944.73173",
+        "type": "switch",
+        "z": "ad8eea7d.e6bd98",
+        "name": "check tag",
+        "property": "tag",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "RSS_ADD",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 184.5,
+        "y": 1288,
+        "wires": [
+            [
+                "80291131.bdfb78"
+            ]
+        ]
+    },
+    {
+        "id": "ad4d25bf.332fc8",
+        "type": "link out",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "links": [
+            "5dd5d0a5.83c0f8"
+        ],
+        "x": 724.5,
+        "y": 1307,
+        "wires": []
+    },
+    {
+        "id": "7a948ca7.477884",
+        "type": "link in",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "links": [
+            "50d4191c.06eb78"
+        ],
+        "x": 82.5,
+        "y": 1293,
+        "wires": [
+            [
+                "566d4944.73173"
+            ]
+        ]
+    },
+    {
+        "id": "227b9885.ef0008",
+        "type": "link out",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "links": [
+            "5dd5d0a5.83c0f8"
+        ],
+        "x": 726.5,
+        "y": 1231,
+        "wires": []
+    },
+    {
+        "id": "433ab3e.786204c",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "set tag",
+        "func": "msg.tag = \"RSS_GET\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 590,
+        "y": 1224,
+        "wires": [
+            [
+                "227b9885.ef0008"
+            ]
+        ]
+    },
+    {
+        "id": "8b176867.1ea938",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "set tag",
+        "func": "msg.tag = \"RSS_GET\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 606,
+        "y": 1295,
+        "wires": [
+            [
+                "ad4d25bf.332fc8"
+            ]
+        ]
+    },
+    {
+        "id": "674c2f40.7100d",
+        "type": "debug",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "active": false,
+        "console": "false",
+        "complete": "true",
+        "x": 1181,
+        "y": 487,
+        "wires": []
+    },
+    {
+        "id": "4da95f5b.d9aa08",
+        "type": "debug",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "active": false,
+        "console": "false",
+        "complete": "true",
+        "x": 1001,
+        "y": 549,
+        "wires": []
+    },
+    {
+        "id": "a636c761.aa6648",
+        "type": "link in",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "links": [
+            "2693aa5e.f3ff26"
+        ],
+        "x": 96,
+        "y": 1556,
+        "wires": [
+            [
+                "38cabed6.ba20e2"
+            ]
+        ]
+    },
+    {
+        "id": "38cabed6.ba20e2",
+        "type": "switch",
+        "z": "ad8eea7d.e6bd98",
+        "name": "check tag",
+        "property": "tag",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "temp",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 201.5,
+        "y": 1556,
+        "wires": [
+            [
+                "7bdd3f2.5aa5cc"
+            ]
+        ]
+    },
+    {
+        "id": "9e8cd77.ed5d6a8",
+        "type": "mysql",
+        "z": "ad8eea7d.e6bd98",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 506,
+        "y": 1559,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7bdd3f2.5aa5cc",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "set querry",
+        "func": "msg.topic = \"INSERT INTO indoor_weather (temp) VALUES (\"+msg.message+\")\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 375.5,
+        "y": 1554,
+        "wires": [
+            [
+                "9e8cd77.ed5d6a8"
+            ]
+        ]
+    },
+    {
+        "id": "385ed60b.13ec4a",
+        "type": "link in",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "links": [
+            "2693aa5e.f3ff26"
+        ],
+        "x": 97,
+        "y": 1630,
+        "wires": [
+            [
+                "c526335d.e5ce58"
+            ]
+        ]
+    },
+    {
+        "id": "c526335d.e5ce58",
+        "type": "switch",
+        "z": "ad8eea7d.e6bd98",
+        "name": "check tag",
+        "property": "tag",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "huminity",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 202.5,
+        "y": 1630,
+        "wires": [
+            [
+                "f58b974e.a3de6"
+            ]
+        ]
+    },
+    {
+        "id": "d25b2ece.9910b",
+        "type": "mysql",
+        "z": "ad8eea7d.e6bd98",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 634,
+        "y": 1648,
+        "wires": [
+            [
+                "eb490ed2.8decb8"
+            ]
+        ]
+    },
+    {
+        "id": "80ee90f1.a143b",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "set querry",
+        "func": "msg.topic = \"SELECT MAX(ID) AS id from indoor_weather\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 503.5,
+        "y": 1643,
+        "wires": [
+            [
+                "d25b2ece.9910b"
+            ]
+        ]
+    },
+    {
+        "id": "f58b974e.a3de6",
+        "type": "delay",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 355.5,
+        "y": 1633,
+        "wires": [
+            [
+                "80ee90f1.a143b"
+            ]
+        ]
+    },
+    {
+        "id": "eb490ed2.8decb8",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "set querry",
+        "func": "msg.topic = \"UPDATE indoor_weather SET hum=\"+msg.message+\" WHERE ID=\"+msg.payload[0].id;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 778,
+        "y": 1642,
+        "wires": [
+            [
+                "23f2ff52.207498",
+                "1194e13d.f1afff"
+            ]
+        ]
+    },
+    {
+        "id": "23f2ff52.207498",
+        "type": "mysql",
+        "z": "ad8eea7d.e6bd98",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 917,
+        "y": 1640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1194e13d.f1afff",
+        "type": "debug",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "active": false,
+        "console": "false",
+        "complete": "true",
+        "x": 925,
+        "y": 1511,
+        "wires": []
+    },
+    {
+        "id": "e5bcade3.99d678",
+        "type": "inject",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 228.5,
+        "y": 1854,
+        "wires": [
+            [
+                "d15ccbc1.9097a"
+            ]
+        ]
+    },
+    {
+        "id": "d15ccbc1.9097a",
+        "type": "change",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "light",
+                "pt": "global",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "isBlindsMan",
+                "pt": "global",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "manlight",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 421.5,
+        "y": 1848,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4d33b0af.0f395",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "func": "\n    var n =parseInt(msg.message);\nif(global.get(\"isBlindsMan\")){\n    if(n!=global.get(\"light\"))\n        global.set(\"light\",n);\n}\nelse{\n    var date = new Date();\n    var current_hour= date.getHours();\n    \n    if(current_hour<20&&current_hour>=7){\n        if(n!=global.get(\"light\")){\n            global.set(\"light\",n);\n            return msg;\n        }\n    }\n    else if(n!=global.get(\"light\")){\n        global.set(\"light\",n);\n    }\n}\n\n//return msg;",
+        "outputs": "1",
+        "noerr": 0,
+        "x": 416.5,
+        "y": 1925,
+        "wires": [
+            [
+                "ec2f48cc.5a328"
+            ]
+        ]
+    },
+    {
+        "id": "8c7868b5.67e288",
+        "type": "inject",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "00 7 * * *",
+        "once": false,
+        "x": 397.5,
+        "y": 2046,
+        "wires": [
+            [
+                "8dc8697c.354ad",
+                "283e64eb.601bb4"
+            ]
+        ]
+    },
+    {
+        "id": "7bc73c7.7eb1544",
+        "type": "inject",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "00 20 * * *",
+        "once": false,
+        "x": 396,
+        "y": 1981,
+        "wires": [
+            [
+                "43fc7e92.fad8a8",
+                "27b8bf31.3f65e"
+            ]
+        ]
+    },
+    {
+        "id": "530eb37d.690bac",
+        "type": "mysql",
+        "z": "ad8eea7d.e6bd98",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 743,
+        "y": 1971,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ec2f48cc.5a328",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "set querry",
+        "func": "msg.topic = \"INSERT INTO message_buffer (ID_sender,message) VALUES (4,\\\"\"+msg.message+\"\\\")\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 574.5,
+        "y": 1921,
+        "wires": [
+            [
+                "530eb37d.690bac",
+                "3fdf9592.28fd32"
+            ]
+        ]
+    },
+    {
+        "id": "bf939e0c.bd54e8",
+        "type": "link in",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "links": [
+            "2693aa5e.f3ff26"
+        ],
+        "x": 138,
+        "y": 1913,
+        "wires": [
+            [
+                "d60d2505.2473a"
+            ]
+        ]
+    },
+    {
+        "id": "d60d2505.2473a",
+        "type": "switch",
+        "z": "ad8eea7d.e6bd98",
+        "name": "check tag",
+        "property": "tag",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "blinds",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 243.5,
+        "y": 1913,
+        "wires": [
+            [
+                "4d33b0af.0f395"
+            ]
+        ]
+    },
+    {
+        "id": "43fc7e92.fad8a8",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "set querry",
+        "func": "msg.topic = \"INSERT INTO message_buffer (ID_sender,message) VALUES (4,\\\"60\\\")\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 579,
+        "y": 1967,
+        "wires": [
+            [
+                "530eb37d.690bac"
+            ]
+        ]
+    },
+    {
+        "id": "8dc8697c.354ad",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "set querry",
+        "func": "\nmsg.topic = \"INSERT INTO message_buffer (ID_sender,message) VALUES (4,\\\"\"+global.get(\"light\")+\"\\\")\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 561,
+        "y": 2038,
+        "wires": [
+            [
+                "530eb37d.690bac"
+            ]
+        ]
+    },
+    {
+        "id": "a6e07846.181e6",
+        "type": "link in",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "links": [
+            "50d4191c.06eb78"
+        ],
+        "x": 159,
+        "y": 2222,
+        "wires": [
+            [
+                "bcb5df87.d707f"
+            ]
+        ]
+    },
+    {
+        "id": "bcb5df87.d707f",
+        "type": "switch",
+        "z": "ad8eea7d.e6bd98",
+        "name": "check tag",
+        "property": "tag",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "BLINDS",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 269,
+        "y": 2221,
+        "wires": [
+            [
+                "e1a93e69.eb3c5"
+            ]
+        ]
+    },
+    {
+        "id": "d9e21f56.9e2c9",
+        "type": "link out",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "links": [
+            "4d0a79bf.089ce8"
+        ],
+        "x": 1121.5,
+        "y": 2243,
+        "wires": []
+    },
+    {
+        "id": "e1a93e69.eb3c5",
+        "type": "switch",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "property": "message",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "auto",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "get",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 3,
+        "x": 413.5,
+        "y": 2222,
+        "wires": [
+            [
+                "7c51c1ee.461ec"
+            ],
+            [
+                "bc8a7678.fea288"
+            ],
+            [
+                "b2a95570.12c77",
+                "10533cd7.ff6beb"
+            ]
+        ]
+    },
+    {
+        "id": "10533cd7.ff6beb",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "func": "\nvar n =parseInt(msg.message);\nif(n!=global.get(\"manlight\")){\n    global.set(\"manlight\",n);\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 485.5,
+        "y": 2501,
+        "wires": [
+            [
+                "817302f.75a99"
+            ]
+        ]
+    },
+    {
+        "id": "7c51c1ee.461ec",
+        "type": "switch",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "property": "isBlindsMan",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 537.5,
+        "y": 2211,
+        "wires": [
+            [
+                "2a7e1bae.6ba41c"
+            ]
+        ]
+    },
+    {
+        "id": "2a7e1bae.6ba41c",
+        "type": "change",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "isBlindsMan",
+                "pt": "global",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 716.5,
+        "y": 2211,
+        "wires": [
+            [
+                "4385ec8b.fe0afc",
+                "1fcab7b6.396908"
+            ]
+        ]
+    },
+    {
+        "id": "6cbad3a4.311704",
+        "type": "mysql",
+        "z": "ad8eea7d.e6bd98",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 1140,
+        "y": 2185,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4385ec8b.fe0afc",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "set querry",
+        "func": "    var date = new Date();\n    var current_hour= date.getHours();\n    \n    if(current_hour<20&&current_hour>=7){\nmsg.topic = \"INSERT INTO message_buffer (ID_sender,message) VALUES (4,\\\"\"+global.get(\"light\")+\"\\\")\";\n} else \nmsg.topic = \"INSERT INTO message_buffer (ID_sender,message) VALUES (4,\\\"60\\\")\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 974,
+        "y": 2190,
+        "wires": [
+            [
+                "6cbad3a4.311704"
+            ]
+        ]
+    },
+    {
+        "id": "1fcab7b6.396908",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "set querry",
+        "func": "\nmsg.message = \"true\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 976,
+        "y": 2240,
+        "wires": [
+            [
+                "d9e21f56.9e2c9"
+            ]
+        ]
+    },
+    {
+        "id": "14d6d6ae.7b95e9",
+        "type": "link out",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "links": [
+            "4d0a79bf.089ce8"
+        ],
+        "x": 752,
+        "y": 2397,
+        "wires": []
+    },
+    {
+        "id": "222dc023.2db85",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "set querry",
+        "func": "\nmsg.message = \"false\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 639.5,
+        "y": 2396,
+        "wires": [
+            [
+                "14d6d6ae.7b95e9"
+            ]
+        ]
+    },
+    {
+        "id": "b2a95570.12c77",
+        "type": "switch",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "property": "isBlindsMan",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 487,
+        "y": 2395,
+        "wires": [
+            [
+                "222dc023.2db85",
+                "66dd3f92.d836f"
+            ]
+        ]
+    },
+    {
+        "id": "817302f.75a99",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "set querry",
+        "func": "\nmsg.topic = \"INSERT INTO message_buffer (ID_sender,message) VALUES (4,\\\"\"+global.get(\"manlight\")+\"\\\")\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 637,
+        "y": 2501,
+        "wires": [
+            [
+                "14e8bdfa.3f381a"
+            ]
+        ]
+    },
+    {
+        "id": "14e8bdfa.3f381a",
+        "type": "mysql",
+        "z": "ad8eea7d.e6bd98",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 785,
+        "y": 2501,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bc8a7678.fea288",
+        "type": "switch",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "property": "isBlindsMan",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 595,
+        "y": 2327,
+        "wires": [
+            [
+                "291f0f71.fba73"
+            ],
+            [
+                "8c1c952e.fd35a"
+            ]
+        ]
+    },
+    {
+        "id": "291f0f71.fba73",
+        "type": "change",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "message",
+                "pt": "msg",
+                "to": "false",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 807,
+        "y": 2309,
+        "wires": [
+            [
+                "d9e21f56.9e2c9"
+            ]
+        ]
+    },
+    {
+        "id": "8c1c952e.fd35a",
+        "type": "change",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "message",
+                "pt": "msg",
+                "to": "true",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 807,
+        "y": 2343,
+        "wires": [
+            [
+                "d9e21f56.9e2c9"
+            ]
+        ]
+    },
+    {
+        "id": "1280ac05.040864",
+        "type": "delay",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "4",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 637.5,
+        "y": 280,
+        "wires": [
+            [
+                "6381a411.493554"
+            ]
+        ]
+    },
+    {
+        "id": "fc4aff7d.bdec2",
+        "type": "inject",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 813.5,
+        "y": 393,
+        "wires": [
+            [
+                "b5ebbcfe.5c56f"
+            ]
+        ]
+    },
+    {
+        "id": "c1669441.22f39",
+        "type": "inject",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 808.5,
+        "y": 488,
+        "wires": [
+            [
+                "43e61eee.452b38"
+            ]
+        ]
+    },
+    {
+        "id": "a0919066.71f2c",
+        "type": "inject",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 436.5,
+        "y": 482,
+        "wires": [
+            [
+                "d2d23812.e2068"
+            ]
+        ]
+    },
+    {
+        "id": "3fdf9592.28fd32",
+        "type": "debug",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 777.5,
+        "y": 1880,
+        "wires": []
+    },
+    {
+        "id": "27b8bf31.3f65e",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "set querry",
+        "func": "msg.topic = \"UPDATE modules SET is_working=\\\"2\\\" WHERE ID=3\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 575,
+        "y": 2000,
+        "wires": [
+            [
+                "530eb37d.690bac"
+            ]
+        ]
+    },
+    {
+        "id": "283e64eb.601bb4",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "set querry",
+        "func": "msg.topic = \"UPDATE modules SET is_working=\\\"1\\\" WHERE ID=3\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 563,
+        "y": 2074,
+        "wires": [
+            [
+                "530eb37d.690bac"
+            ]
+        ]
+    },
+    {
+        "id": "66dd3f92.d836f",
+        "type": "change",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "isBlindsMan",
+                "pt": "global",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 679,
+        "y": 2438,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "94f901cb.09aa08",
+        "type": "inject",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 388,
+        "y": 833,
+        "wires": [
+            [
+                "459e5cc2.6ec56c"
+            ]
+        ]
+    },
+    {
+        "id": "5781ca03.2d2444",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "set querry",
+        "func": "\nmsg.topic = \"INSERT INTO message_buffer (ID_sender,message) VALUES (5,\\\"0\\\")\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 488,
+        "y": 2782,
+        "wires": [
+            [
+                "685b2b84.c4d6cc"
+            ]
+        ]
+    },
+    {
+        "id": "685b2b84.c4d6cc",
+        "type": "mysql",
+        "z": "ad8eea7d.e6bd98",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 636,
+        "y": 2782,
+        "wires": [
+            [
+                "947ae27d.649a48"
+            ]
+        ]
+    },
+    {
+        "id": "691668d5.085938",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "set querry",
+        "func": "\nmsg.topic = \"INSERT INTO message_buffer (ID_sender,message) VALUES (5,\\\"1\\\")\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 496,
+        "y": 2968,
+        "wires": [
+            [
+                "efb28e57.003178"
+            ]
+        ]
+    },
+    {
+        "id": "efb28e57.003178",
+        "type": "mysql",
+        "z": "ad8eea7d.e6bd98",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 644,
+        "y": 2968,
+        "wires": [
+            [
+                "b72b3d5d.897308"
+            ]
+        ]
+    },
+    {
+        "id": "10fce3e7.d6315c",
+        "type": "inject",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 210.5,
+        "y": 2777,
+        "wires": [
+            [
+                "5781ca03.2d2444"
+            ]
+        ]
+    },
+    {
+        "id": "947ae27d.649a48",
+        "type": "delay",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 697.5,
+        "y": 2880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b72b3d5d.897308",
+        "type": "delay",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 481.50000762939453,
+        "y": 2882.2500438690186,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aa3e0f13.3c7",
+        "type": "inject",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 199,
+        "y": 2977,
+        "wires": [
+            [
+                "691668d5.085938"
+            ]
+        ]
+    },
+    {
+        "id": "71d8a999.babf08",
+        "type": "inject",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 786,
+        "y": 138,
+        "wires": [
+            [
+                "adf3397c.d565b8"
+            ]
+        ]
+    },
+    {
+        "id": "3eb2fd6c.fceb0a",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "set querry",
+        "func": "msg.topic = \"UPDATE  move SET move=3\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1341.2500190734863,
+        "y": 308.7500057220459,
+        "wires": [
+            [
+                "8dc7b62b.70f538"
+            ]
+        ]
+    },
+    {
+        "id": "8dc7b62b.70f538",
+        "type": "mysql",
+        "z": "ad8eea7d.e6bd98",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 1345.3571128845215,
+        "y": 335.14282417297363,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bcc48853.9fc7f8",
+        "type": "debug",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1204.5,
+        "y": 3112,
+        "wires": []
+    },
+    {
+        "id": "19919321.693c4d",
+        "type": "function",
+        "z": "ad8eea7d.e6bd98",
+        "name": "set querry",
+        "func": "\nmsg.topic = \"INSERT INTO message_buffer (ID_sender,message) VALUES (5,\\\"\"+msg.message+\"\\\")\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 521,
+        "y": 2684,
+        "wires": [
+            [
+                "d8d6a951.3b1978"
+            ]
+        ]
+    },
+    {
+        "id": "d8d6a951.3b1978",
+        "type": "mysql",
+        "z": "ad8eea7d.e6bd98",
+        "mydb": "393e4a97.a65eb6",
+        "name": "",
+        "x": 669,
+        "y": 2684,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cac3f4ed.5a4518",
+        "type": "link in",
+        "z": "ad8eea7d.e6bd98",
+        "name": "",
+        "links": [
+            "50d4191c.06eb78"
+        ],
+        "x": 265.5,
+        "y": 2680,
+        "wires": [
+            [
+                "2c83702e.97b6c"
+            ]
+        ]
+    },
+    {
+        "id": "2c83702e.97b6c",
+        "type": "switch",
+        "z": "ad8eea7d.e6bd98",
+        "name": "check tag",
+        "property": "tag",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "SOCKET",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 376.5,
+        "y": 2683,
+        "wires": [
+            [
+                "19919321.693c4d"
+            ]
+        ]
+    },
+    {
+        "id": "fc4e797a.b2557",
+        "type": "twilio-api",
+        "z": "",
+        "sid": "AC88a61746e5ac44170dd948f0d25f26f1",
+        "from": "+4212/33056690 ",
+        "name": ""
+    },
+    {
+        "id": "393e4a97.a65eb6",
+        "type": "MySQLdatabase",
+        "z": "",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "mror",
+        "tz": ""
+    }
+]
